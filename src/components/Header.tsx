@@ -83,8 +83,8 @@ export const Header: React.FC<HeaderProps> = ({
                   AP Edition
                 </span>
               </div>
-              <p className="text-[10px] sm:text-[11px] text-slate-500 font-medium hidden sm:block truncate max-w-xs">
-                {t.tagline}
+              <p className="text-[10px] sm:text-[11px] text-slate-500 font-medium hidden sm:block truncate max-w-sm">
+                From a citizen&apos;s goal to a complete government journey.
               </p>
             </div>
           </div>
@@ -115,20 +115,18 @@ export const Header: React.FC<HeaderProps> = ({
               {t.navExplore}
             </button>
 
-            {hasActiveJourney && (
-              <button
-                type="button"
-                onClick={() => onNavigate('journey')}
-                className={`px-3.5 py-2 rounded-lg text-sm font-semibold transition flex items-center space-x-1.5 ${
-                  currentView === 'journey'
-                    ? 'bg-amber-100 text-amber-900 border border-amber-300'
-                    : 'text-amber-700 bg-amber-50 hover:bg-amber-100'
-                }`}
-              >
-                <span className="w-2 h-2 rounded-full bg-amber-500" />
-                <span>{t.navMyJourney}</span>
-              </button>
-            )}
+            <button
+              type="button"
+              onClick={() => onNavigate('journey')}
+              className={`px-3.5 py-2 rounded-lg text-sm font-semibold transition flex items-center space-x-1.5 ${
+                currentView === 'journey'
+                  ? 'bg-amber-100 text-amber-900 border border-amber-300'
+                  : 'text-amber-700 bg-amber-50 hover:bg-amber-100'
+              }`}
+            >
+              <span className="w-2 h-2 rounded-full bg-amber-500" />
+              <span>{t.navMyJourney}</span>
+            </button>
 
             <button
               type="button"
@@ -157,13 +155,13 @@ export const Header: React.FC<HeaderProps> = ({
 
           {/* Right Action Tools */}
           <div className="flex items-center space-x-2 sm:space-x-3">
-            {/* District Selector Pill */}
+            {/* Location Selector (AP District Dropdown) */}
             <div className="relative">
               <button
                 type="button"
                 onClick={() => setDistrictDropdownOpen(!districtDropdownOpen)}
                 className="hidden md:flex items-center space-x-1.5 px-3 py-1.5 rounded-lg border border-slate-200 bg-slate-50 text-slate-700 hover:bg-slate-100 text-xs font-medium transition"
-                title="Select District"
+                title="Select Location / District"
               >
                 <MapPin className="w-3.5 h-3.5 text-amber-600" />
                 <span className="max-w-[110px] truncate">
@@ -196,18 +194,16 @@ export const Header: React.FC<HeaderProps> = ({
               )}
             </div>
 
-            {/* Print Docket Button if active */}
-            {hasActiveJourney && (
-              <button
-                type="button"
-                onClick={onPrint}
-                className="hidden sm:inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold shadow-xs transition"
-                title="Print personal checklist"
-              >
-                <Printer className="w-3.5 h-3.5 text-slate-600" />
-                <span>{t.downloadPdf}</span>
-              </button>
-            )}
+            {/* Print Docket Button */}
+            <button
+              type="button"
+              onClick={onPrint}
+              className="hidden sm:inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold shadow-2xs transition"
+              title="Print Citizen Docket"
+            >
+              <Printer className="w-3.5 h-3.5 text-slate-600" />
+              <span>Print Docket</span>
+            </button>
 
             {/* Language Switcher Button */}
             <button

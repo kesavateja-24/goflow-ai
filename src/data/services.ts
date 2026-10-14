@@ -3146,5 +3146,1535 @@ export const AP_VERIFIED_SERVICES: ServiceRecord[] = [
         verificationStatus: 'verified'
       }
     ]
+  },
+  // 11. Residence & Nativity Certificate
+  {
+    id: 'ap-residence-cert',
+    serviceName: {
+      en: 'Residence & Nativity Certificate',
+      te: 'నివాస మరియు స్థానికత ధ్రువీకరణ పత్రం (Residence / Nativity Certificate)',
+      hi: 'निवास और मूल निवासी प्रमाण पत्र'
+    },
+    category: 'certificates',
+    department: 'Revenue Department, Government of Andhra Pradesh',
+    state: 'Andhra Pradesh',
+    description: {
+      en: 'Statutory domicile certificate issued by the Tahsildar validating unbroken or continuous residence within Andhra Pradesh, crucial for government school/college admissions, EAPCET/POLYCET counseling quotas, and APPSC civil employment.',
+      te: 'ఆంధ్రప్రదేశ్ లో శాశ్వత నివాసం ఉంటున్నట్లు తహశీల్దార్ వారిచే జారీ చేయబడే నివాస ధ్రువపత్రం. ఉన్నత విద్యా ప్రవేశాలు, ఈఏపీసెట్/పాలిసెట్ కౌన్సెలింగ్ మరియు ప్రభుత్వ ఉద్యోగాల స్థానిక కోటా కొరకు తప్పనిసరి.',
+      hi: 'आंध्र प्रदेश में निरंतर निवास को प्रमाणित करने के लिए तहसीलदार द्वारा जारी निवास प्रमाण पत्र, जो उच्च शिक्षा और सरकारी नौकरियों के लिए आवश्यक है।'
+    },
+    eligibility: {
+      criteria: {
+        en: [
+          'Applicant must have continuously resided or studied in Andhra Pradesh for at least 4 to 7 consecutive academic years under Presidential Order 1975.',
+          'For institutional residence: 7 years of consecutive study in recognized schools/colleges in Andhra Pradesh.',
+          'For general residence: continuous stay certified through voter records, property tax receipts, or electricity connections in the local mandal.'
+        ],
+        te: [
+          'దరఖాస్తుదారు ప్రెసిడెన్షియల్ ఆర్డర్ 1975 నిబంధనల ప్రకారం ఆంధ్రప్రదేశ్ లో కనీసం 4 నుండి 7 సంవత్సరాలు స్థానికంగా చదివి లేదా నివసించి ఉండాలి.',
+          'విద్యాసంబంధ స్థానికతకు: గుర్తింపు పొందిన పాఠశాలలు/కళాశాలల్లో 7 సంవత్సరాల నిరంతర స్టడీ సర్టిఫికెట్.',
+          'సాధారణ నివాసానికి: సంబంధిత మండలంలో ఓటరు జాబితా, ఆస్తి పన్ను లేదా విద్యుత్ బిల్లుల ద్వారా నిరూపితమైన నివాసం.'
+        ],
+        hi: [
+          'आवेदक कम से कम 4 से 7 साल तक आंध्र प्रदेश में लगातार अध्ययनरत या निवासी होना चाहिए।',
+          'मान्यता प्राप्त स्कूलों से 7 साल का अध्ययन प्रमाण पत्र या संपत्ति कर रसीद।'
+        ]
+      }
+    },
+    documents: [
+      {
+        id: 'doc-aadhaar',
+        name: {
+          en: 'Aadhaar Card (Applicant & Parent)',
+          te: 'ఆధార్ కార్డు (దరఖాస్తుదారు మరియు తల్లి/తండ్రి)',
+          hi: 'आधार कार्ड (आवेदक और माता-पिता)'
+        },
+        purpose: {
+          en: 'Biometric identity proof and demographic address verification.',
+          te: 'బయోమెట్రిక్ గుర్తింపు మరియు చిరునామా ధ్రువీకరణ.',
+          hi: 'बायोमेट्रिक पहचान प्रमाण और पता सत्यापन।'
+        },
+        category: 'required',
+        issuingAuthority: 'Unique Identification Authority of India (UIDAI)',
+        officialPortal: 'myaadhaar.uidai.gov.in',
+        officialPortalUrl: 'https://myaadhaar.uidai.gov.in/',
+        estimatedEffort: 'Instant via DigiLocker / Aadhaar Portal',
+        whyRequired: {
+          en: 'Required by MeeSeva & GSWS for mandatory e-KYC and deduplication.',
+          te: 'సచివాలయం దరఖాస్తులో ఈ-కేవైసీ కొరకు ఆధార్ తప్పనిసరి.',
+          hi: 'ई-केवाईसी के लिए आवश्यक।'
+        },
+        dependencies: [],
+        obtainedFrom: 'UIDAI Enrollment Centers or myAadhaar Portal',
+        status: 'need'
+      },
+      {
+        id: 'doc-study-7yrs',
+        name: {
+          en: '7 Consecutive Years Study Certificates or School TC',
+          te: '7 సంవత్సరాల నిరంతర స్టడీ సర్టిఫికెట్లు లేదా పాఠశాల TC',
+          hi: '7 वर्षों का लगातार अध्ययन प्रमाण पत्र'
+        },
+        purpose: {
+          en: 'Conclusive legal proof of local candidate status in the district/zone under Presidential Order.',
+          te: 'రాష్ట్రపతి ఉత్తర్వుల ప్రకారం జిల్లా/విశ్వవిద్యాలయ పరిధిలో స్థానిక హోదా నిర్ధారణ.',
+          hi: 'स्थानीय उम्मीदवार स्थिति का प्रमाण।'
+        },
+        category: 'required',
+        issuingAuthority: 'Heads of Recognized Educational Institutions / DEO',
+        officialPortal: 'bse.ap.gov.in',
+        officialPortalUrl: 'https://bse.ap.gov.in/',
+        estimatedEffort: '1-3 days from previously attended schools',
+        whyRequired: {
+          en: 'Revenue authorities rely on academic institutional presence as primary verification of nativity.',
+          te: 'రెవెన్యూ అధికారులు నివాస ధ్రువీకరణకు పాఠశాల రికార్డులను ప్రాథమిక ఆధారంగా పరిగణిస్తారు.',
+          hi: 'स्थानीय निवास के सत्यापन हेतु आवश्यक।'
+        },
+        dependencies: [],
+        obtainedFrom: 'School or College Principal / Administrative Office',
+        status: 'need'
+      },
+      {
+        id: 'doc-house-tax-or-ebill',
+        name: {
+          en: 'Property Tax Receipt / Registered Rental Agreement / Electricity Bill',
+          te: 'ఇంటి పన్ను రసీదు / రిజిస్టర్డ్ అద్దె ఒప్పందం / కరెంట్ బిల్లు',
+          hi: 'संपत्ति कर रसीद या बिजली का बिल'
+        },
+        purpose: {
+          en: 'Physical residence proof within the village/ward jurisdiction.',
+          te: 'గ్రామ లేదా వార్డు పరిధిలోని నివాస ప్రాంగణాన్ని ధ్రువీకరించే పత్రం.',
+          hi: 'गांव या वार्ड में वास्तविक निवास का प्रमाण।'
+        },
+        category: 'conditional',
+        issuingAuthority: 'Grama Panchayat / Urban Local Body (CDMA) / AP Discom',
+        officialPortal: 'cdma.ap.gov.in',
+        officialPortalUrl: 'https://cdma.ap.gov.in/',
+        estimatedEffort: 'Instant download or available at home',
+        whyRequired: {
+          en: 'Mandatory if candidate has private study without institutional school records.',
+          te: 'పాఠశాల స్టడీ సర్టిఫికెట్లు లేని ప్రైవేట్ విద్యార్థులకు నివాస నిర్ధారణకు తప్పనిసరి.',
+          hi: 'यदि अध्ययन प्रमाण पत्र उपलब्ध न हो तो आवश्यक।'
+        },
+        dependencies: [],
+        obtainedFrom: 'Panchayat Office / Municipal Office / Discom Portal',
+        status: 'need'
+      },
+      {
+        id: 'doc-ration-card',
+        name: {
+          en: 'AP Rice Card or Food Security Card',
+          te: 'ఆంధ్రప్రదేశ్ బియ్యం కార్డు (రేషన్ కార్డు)',
+          hi: 'आंध्र प्रदेश चावल कार्ड (राशन कार्ड)'
+        },
+        purpose: {
+          en: 'Family relationship mapping and residence cluster validation.',
+          te: 'కుటుంబ సంబంధాలు మరియు స్థానిక నివాస యూనిట్ ధ్రువీకరణ.',
+          hi: 'पारिवारिक संबंध और पता सत्यापन।'
+        },
+        category: 'optional',
+        issuingAuthority: 'Department of Consumer Affairs, Food & Civil Supplies, AP',
+        officialPortal: 'epdsap.ap.gov.in',
+        officialPortalUrl: 'https://epdsap.ap.gov.in/',
+        estimatedEffort: 'Instant lookup via epdsap.ap.gov.in',
+        whyRequired: {
+          en: 'Speeds up verification by VRO through preexisting family card mapping.',
+          te: 'గ్రామ రెవెన్యూ అధికారి (VRO) విచారణను సులభతరం చేస్తుంది.',
+          hi: 'सत्यापन प्रक्रिया को तीव्र करता है।'
+        },
+        dependencies: [],
+        obtainedFrom: 'Grama Ward Sachivalayam Civil Supplies Desk',
+        status: 'need'
+      }
+    ],
+    steps: [
+      {
+        stepNumber: 1,
+        stage: 'eligibility',
+        title: {
+          en: 'Check Local Area Residency Rules',
+          te: 'స్థానిక నివాస నిబంధనల పరిశీలన',
+          hi: 'स्थानीय निवास नियमों की जांच'
+        },
+        explanation: {
+          en: 'Ensure applicant satisfies the 4 consecutive or 7 total years schooling criteria under Andhra Pradesh Educational Institutions Regulation of Admissions Order.',
+          te: 'దరఖాస్తుదారు సంబంధిత జిల్లాలో విద్యా సంస్థల ప్రవేశాల నిబంధనల ప్రకారం అర్హత కలిగి ఉన్నారో నిర్ధారించుకోండి.',
+          hi: 'सुनिश्चित करें कि आवेदक 7 वर्षों के अध्ययन मानदंड को पूरा करता है।'
+        },
+        department: 'Revenue & School Education Dept',
+        action: {
+          en: 'Assemble school study certificates from Class 1 to Class 10/Intermediate',
+          te: '1 నుండి 10వ తరగతి వరకు స్టడీ సర్టిఫికెట్లు సిద్ధం చేసుకోండి',
+          hi: 'कक्षा 1 से 10 तक के अध्ययन प्रमाण पत्र एकत्र करें'
+        },
+        actionUrl: 'https://gramawardsachivalayam.ap.gov.in/',
+        actionLabel: {
+          en: 'View Domicile Guidelines',
+          te: 'నిబంధనల మార్గదర్శకాలు చూడండి',
+          hi: 'दिशानिर्देश देखें'
+        },
+        onlineAvailable: true,
+        offlineAvailable: true,
+        offlineVenue: 'Grama / Ward Sachivalayam (Digital Assistant / VRO)',
+        documentsRequired: ['doc-study-7yrs', 'doc-aadhaar'],
+        dependencies: [],
+        expectedDays: '1 Day',
+        fee: 'Nil',
+        verificationStatus: 'verified'
+      },
+      {
+        stepNumber: 2,
+        stage: 'portal_submission',
+        title: {
+          en: 'Submit Application via Sachivalayam or MeeSeva',
+          te: 'సచివాలయం లేదా మీసేవ కేంద్రంలో దరఖాస్తు సమర్పణ',
+          hi: 'सचिवालय या मीसेवा में आवेदन जमा करें'
+        },
+        explanation: {
+          en: 'Provide applicant Aadhaar for biometric authentication. Operator uploads study certificates and generates a permanent AP GSWS Application Transaction Number.',
+          te: 'బయోమెట్రిక్ ఈ-కేవైసీ ద్వారా దరఖాస్తు నమోదు చేయబడుతుంది. రశీదు నంబర్ (Transaction ID) జారీ చేస్తారు.',
+          hi: 'बायोमेट्रिक ई-केवाईसी के माध्यम से आवेदन करें और पावती संख्या प्राप्त करें।'
+        },
+        department: 'Grama Ward Sachivalayam & MeeSeva',
+        action: {
+          en: 'Visit your designated Grama/Ward Sachivalayam with documents',
+          te: 'మీ పరిధిలోని గ్రామ/వార్డు సచివాలయాన్ని సందర్శించి దరఖాస్తు చేయండి',
+          hi: 'ग्राम/वार्ड सचिवालय जाकर आवेदन करें'
+        },
+        actionUrl: 'https://onlineap.meeseva.gov.in/',
+        actionLabel: {
+          en: 'Track on MeeSeva Portal',
+          te: 'మీసేవ పోర్టల్ లో ట్రాక్ చేయండి',
+          hi: 'मीसेवा पोर्टल पर ट्रैक करें'
+        },
+        onlineAvailable: true,
+        offlineAvailable: true,
+        offlineVenue: 'Local Village/Ward Secretariat or MeeSeva Franchise Center',
+        documentsRequired: ['doc-aadhaar', 'doc-study-7yrs', 'doc-house-tax-or-ebill'],
+        dependencies: [1],
+        expectedDays: '1 Day',
+        fee: '₹45 (Statutory User Charges)',
+        verificationStatus: 'verified'
+      },
+      {
+        stepNumber: 3,
+        stage: 'verification',
+        title: {
+          en: 'VRO & Revenue Inspector (RI) Verification',
+          te: 'VRO మరియు రెవెన్యూ ఇన్‌స్పెక్టర్ క్షేత్రస్థాయి విచారణ',
+          hi: 'वीआरओ और राजस्व निरीक्षक का फील्ड सत्यापन'
+        },
+        explanation: {
+          en: 'Village Revenue Officer (VRO) scrutinizes submitted study records and conducts spot inquiry if residing privately without school records. Forwards recommendation to Tahsildar.',
+          te: 'గ్రామ రెవెన్యూ అధికారి రికార్డులను పరిశీలించి, అవసరమైతే విచారణ జరిపి తహశీల్దార్ ఆమోదానికి సిఫారసు చేస్తారు.',
+          hi: 'ग्राम राजस्व अधिकारी दस्तावेजों की जांच कर तहसीलदार को रिपोर्ट भेजता है।'
+        },
+        department: 'Revenue Department (Mandal Office)',
+        action: {
+          en: 'VRO performs physical and digital verification in Sachivalayam workflow',
+          te: 'VRO డిజిటల్ సిస్టమ్ ద్వారా సిఫారసు సమర్పిస్తారు',
+          hi: 'डिजिटल प्रणाली द्वारा जांच पूर्ण की जाती है'
+        },
+        onlineAvailable: true,
+        offlineAvailable: true,
+        documentsRequired: [],
+        dependencies: [2],
+        expectedDays: '3-4 Working Days',
+        fee: 'Nil',
+        verificationStatus: 'verified'
+      },
+      {
+        stepNumber: 4,
+        stage: 'issuance',
+        title: {
+          en: 'Tahsildar Digital Signature & Certificate Download',
+          te: 'తహశీల్దార్ డిజిటల్ సంతకం & ధ్రువపత్రం డౌన్‌లోడ్',
+          hi: 'तहसीलदार डिजिटल हस्ताक्षर और प्रमाण पत्र डाउनलोड'
+        },
+        explanation: {
+          en: 'Tahsildar digitally signs the Residence Certificate using DSC token. The certificate features a secure QR code and can be downloaded from MeeSeva or DigiLocker.',
+          te: 'తహశీల్దార్ డిజిటల్ సంతకంతో క్యూఆర్ కోడ్ ఉన్న అధికారిక నివాస ధ్రువపత్రం జారీ చేయబడుతుంది. మీసేవ లేదా డిజిలాకర్ ద్వారా పొందవచ్చు.',
+          hi: 'डिजिटल रूप से हस्ताक्षरित प्रमाण पत्र क्यूआर कोड के साथ जारी किया जाता है।'
+        },
+        department: 'Revenue Department (Tahsildar)',
+        action: {
+          en: 'Download stamped digitally signed certificate with QR code',
+          te: 'డిజిటల్ సంతకంతో కూడిన నివాస సర్టిఫికెట్ డౌన్‌లోడ్ చేసుకోండి',
+          hi: 'हस्ताक्षरित प्रमाण पत्र डाउनलोड करें'
+        },
+        actionUrl: 'https://onlineap.meeseva.gov.in/',
+        actionLabel: {
+          en: 'Download via MeeSeva',
+          te: 'మీసేవ నుండి డౌన్‌లోడ్ చేయండి',
+          hi: 'मीसेवा से डाउनलोड करें'
+        },
+        onlineAvailable: true,
+        offlineAvailable: true,
+        offlineVenue: 'Grama / Ward Sachivalayam counter',
+        documentsRequired: [],
+        dependencies: [3],
+        expectedDays: '2 Working Days',
+        fee: 'Nil',
+        verificationStatus: 'verified'
+      }
+    ],
+    dependencies: [],
+    officialPortal: 'onlineap.meeseva.gov.in',
+    officialPortalUrl: 'https://onlineap.meeseva.gov.in/',
+    trackingUrl: 'https://onlineap.meeseva.gov.in/',
+    onlineAvailable: true,
+    offlineAvailable: true,
+    offlineDetails: {
+      en: 'Apply at any Grama / Ward Sachivalayam or authorized MeeSeva center in Andhra Pradesh.',
+      te: 'ఆంధ్రప్రదేశ్ లోని ఏ గ్రామ/వార్డు సచివాలయం లేదా మీసేవ కేంద్రంలోనైనా దరఖాస్తు చేసుకోవచ్చు.',
+      hi: 'किसी भी ग्राम/वार्ड सचिवालय या अधिकृत मीसेवा केंद्र पर आवेदन करें।'
+    },
+    fees: [
+      {
+        item: 'MeeSeva / GSWS Statutory Application Charge',
+        amount: '₹45.00',
+        officialRule: 'AP Revenue Department G.O. Ms. No. 124'
+      }
+    ],
+    processingTime: '7 Working Days (Statutory SLA)',
+    outputDocument: {
+      en: 'Government of Andhra Pradesh Digitally Signed Residence Certificate with Hologram & QR Code',
+      te: 'తహశీల్దార్ వారి డిజిటల్ సంతకం మరియు క్యూఆర్ కోడ్ కలిగిన అధికారిక నివాస ధ్రువీకరణ పత్రం',
+      hi: 'आधिकारिक डिजिटल हस्ताक्षरित निवास प्रमाण पत्र'
+    },
+    lastVerified: 'March 2026',
+    verificationStatus: 'verified',
+    sources: [
+      {
+        title: 'MeeSeva Andhra Pradesh',
+        domain: 'onlineap.meeseva.gov.in',
+        url: 'https://onlineap.meeseva.gov.in/',
+        lastVerified: 'March 2026',
+        tier: 1,
+        verificationStatus: 'verified'
+      },
+      {
+        title: 'Grama Ward Sachivalayam Portal',
+        domain: 'gramawardsachivalayam.ap.gov.in',
+        url: 'https://gramawardsachivalayam.ap.gov.in/',
+        lastVerified: 'March 2026',
+        tier: 1,
+        verificationStatus: 'verified'
+      }
+    ],
+    exceptionCases: [
+      {
+        id: 'gap-in-study',
+        title: {
+          en: 'Gap Years or Private Study without School TC',
+          te: 'చదువులో విరామం (గ్యాప్) లేదా ప్రైవేట్ చదువు ఉన్న సందర్భం',
+          hi: 'अध्ययन में अंतराल या प्राइवेट अध्ययन'
+        },
+        resolution: {
+          en: 'Submit a notarized self-affidavit accompanied by residential electricity bills or registered rental agreements for the preceding 4 years. VRO will conduct physical inquiry.',
+          te: 'గత 4 సంవత్సరాల విద్యుత్ బిల్లులు లేదా అద్దె ఒప్పందంతో పాటు నోటరీ అఫిడవిట్ సమర్పించాలి. VRO ప్రత్యక్ష విచారణ చేస్తారు.',
+          hi: 'बिजली बिल और नोटरी शपथ पत्र प्रस्तुत करें; वीआरओ जांच करेगा।'
+        }
+      }
+    ]
+  },
+
+  // 12. Dr. NTR / YSR Aarogyasri Health Scheme Card
+  {
+    id: 'ap-aarogyasri-card',
+    serviceName: {
+      en: 'Dr. NTR / YSR Aarogyasri Health Scheme Card',
+      te: 'డాక్టర్ ఎన్టీఆర్ / వైఎస్సార్ ఆరోగ్యశ్రీ హెల్త్ కార్డు (Aarogyasri Universal Health Card)',
+      hi: 'आरोग्यश्री स्वास्थ्य योजना कार्ड'
+    },
+    category: 'health',
+    department: 'Dr. YSR / NTR Aarogyasri Health Care Trust, Department of Health & Family Welfare, AP',
+    state: 'Andhra Pradesh',
+    description: {
+      en: 'Flagship universal healthcare program providing cashless secondary and tertiary medical treatments up to ₹25 Lakhs per family per annum across 2,400+ notified procedures in 1,800+ empaneled government and private network hospitals.',
+      te: 'రాష్ట్రంలోని పేద మరియు మధ్యతరగతి కుటుంబాలకు 2,400కు పైగా వ్యాధులకు ఏడాదికి రూ. 25 లక్షల వరకు ఉచిత నగదు రహిత శస్త్రచికిత్సలు మరియు వైద్యం అందించే ప్రతిష్టాత్మక ఆరోగ్య పథకం.',
+      hi: 'प्रति परिवार प्रति वर्ष 25 लाख रुपये तक कैशलेस माध्यमिक और तृतीयक चिकित्सा उपचार प्रदान करने वाली प्रमुख स्वास्थ्य योजना।'
+    },
+    eligibility: {
+      criteria: {
+        en: [
+          'Possession of an active Andhra Pradesh Rice Card / Food Security Card automatically qualifies the family.',
+          'Annual family income must be below ₹5,00,000 for families without a Rice Card.',
+          'Total land holding must be less than 12 acres of wetland or 35 acres of dryland.',
+          'Family should not own more than one personal four-wheeler (taxis, tractors, and auto-rickshaws exempted).'
+        ],
+        te: [
+          'ఆంధ్రప్రదేశ్ క్రియాశీల బియ్యం కార్డు (రైస్ కార్డు) ఉన్న కుటుంబాలన్నీ స్వయంచాలకంగా అర్హులు.',
+          'బియ్యం కార్డు లేని కుటుంబాల వార్షిక ఆదాయం రూ. 5,00,000 లోపు ఉండాలి.',
+          'మొత్తం భూమి పరిమితి 12 ఎకరాల మాగాణి లేదా 35 ఎకరాల మెట్ట లోపు ఉండాలి.',
+          'కుటుంబానికి ఒక సొంత కారు కంటే ఎక్కువ ఉండకూడదు (ట్యాక్సీలు, ట్రాక్టర్లు, ఆటోలకు మినహాయింపు).'
+        ],
+        hi: [
+          'सक्रिय एपी चावल कार्ड धारक परिवार स्वतः पात्र हैं।',
+          'पारिवारिक वार्षिक आय 5 लाख रुपये से कम होनी चाहिए।'
+        ]
+      }
+    },
+    documents: [
+      {
+        id: 'doc-rice-card',
+        name: {
+          en: 'AP Rice Card / Ration Card',
+          te: 'ఆంధ్రప్రదేశ్ బియ్యం కార్డు (రైస్ కార్డు)',
+          hi: 'आंध्र प्रदेश चावल कार्ड'
+        },
+        purpose: {
+          en: 'Direct entitlement qualification for zero-hassle instant issuance.',
+          te: 'ప్రత్యక్ష అర్హత మరియు కుటుంబ సభ్యుల ధ్రువీకరణ.',
+          hi: 'पात्रता सत्यापन के लिए प्राथमिक दस्तावेज।'
+        },
+        category: 'required',
+        issuingAuthority: 'Department of Consumer Affairs, Food & Civil Supplies, AP',
+        officialPortal: 'epdsap.ap.gov.in',
+        officialPortalUrl: 'https://epdsap.ap.gov.in/',
+        estimatedEffort: 'Instant lookup via Aadhaar/Ration number',
+        whyRequired: {
+          en: 'Aarogyasri Trust database is linked 100% to Civil Supplies Rice Card family roster.',
+          te: 'ఆరోగ్యశ్రీ డేటాబేస్ పౌర సరఫరాల శాఖ కుటుంబ సభ్యుల రికార్డులతో అనుసంధానించబడింది.',
+          hi: 'राशन कार्ड परिवार रिकॉर्ड से सीधा जुड़ा हुआ है।'
+        },
+        dependencies: [],
+        obtainedFrom: 'Grama Ward Sachivalayam Civil Supplies Desk',
+        status: 'need'
+      },
+      {
+        id: 'doc-aadhaar',
+        name: {
+          en: 'Aadhaar Cards of All Family Members',
+          te: 'కుటుంబ సభ్యులందరి ఆధార్ కార్డులు',
+          hi: 'परिवार के सभी सदस्यों के आधार कार्ड'
+        },
+        purpose: {
+          en: 'Biometric identity linkage and individual Aarogyasri UHID assignment.',
+          te: 'వ్యక్తిగత యూనిక్ హెల్త్ ఐడీ (UHID) కేటాయింపు మరియు బయోమెట్రిక్ నిర్ధారణ.',
+          hi: 'यूएचआईडी आवंटन और पहचान सत्यापन।'
+        },
+        category: 'required',
+        issuingAuthority: 'UIDAI',
+        officialPortal: 'myaadhaar.uidai.gov.in',
+        officialPortalUrl: 'https://myaadhaar.uidai.gov.in/',
+        estimatedEffort: 'Instant via DigiLocker',
+        whyRequired: {
+          en: 'Each patient requires authenticated Aadhaar e-KYC upon hospital admission.',
+          te: 'ఆసుపత్రిలో అడ్మిషన్ సమయంలో ప్రతి రోగికి ఆధార్ ఈ-కేవైసీ అవసరం.',
+          hi: 'अस्पताल में भर्ती के समय ई-केवाईसी आवश्यक है।'
+        },
+        dependencies: [],
+        obtainedFrom: 'UIDAI',
+        status: 'need'
+      },
+      {
+        id: 'doc-income-cert',
+        name: {
+          en: 'Integrated Income Certificate (If Non-Rice Card Holder)',
+          te: 'ఆదాయ ధ్రువీకరణ పత్రం (బియ్యం కార్డు లేని వారికి మాత్రమే)',
+          hi: 'आय प्रमाण पत्र (केवल गैर-चावल कार्ड धारकों के लिए)'
+        },
+        purpose: {
+          en: 'Proof that annual family income does not exceed ₹5,00,000 limit.',
+          te: 'వార్షిక కుటుంబ ఆదాయం రూ. 5 లక్షలలోపు ఉన్నట్లు తహశీల్దార్ వారి ధ్రువీకరణ.',
+          hi: '5 लाख की आय सीमा का प्रमाण।'
+        },
+        category: 'conditional',
+        issuingAuthority: 'Revenue Department (Tahsildar)',
+        officialPortal: 'onlineap.meeseva.gov.in',
+        officialPortalUrl: 'https://onlineap.meeseva.gov.in/',
+        estimatedEffort: '3-5 days via MeeSeva/Sachivalayam',
+        whyRequired: {
+          en: 'Allows non-BPL middle-class families in AP to avail comprehensive healthcare protections.',
+          te: 'మధ్యతరగతి కుటుంబాలకు కూడా ఆరోగ్యశ్రీ పథకం ప్రయోజనం అందించేందుకు.',
+          hi: 'मध्यमवर्गीय परिवारों को योजना का लाभ देने हेतु।'
+        },
+        dependencies: [],
+        obtainedFrom: 'MeeSeva / Sachivalayam',
+        status: 'need'
+      }
+    ],
+    steps: [
+      {
+        stepNumber: 1,
+        stage: 'eligibility',
+        title: {
+          en: 'Verify Family Inclusion in Health Roster',
+          te: 'ఆరోగ్యశ్రీ జాబితాలో కుటుంబ సభ్యుల పేర్ల పరిశీలన',
+          hi: 'स्वास्थ्य सूची में परिवार के सदस्यों की जांच'
+        },
+        explanation: {
+          en: 'Check if all family members listed in Rice Card appear on Aarogyasri Trust portal or ANM Health Assistant dashboard in the village/ward.',
+          te: 'మీ బియ్యం కార్డులో ఉన్న అందరి పేర్లు ఆరోగ్యశ్రీ పోర్టల్ లేదా సచివాలయ ఏఎన్ఎం (ANM) పరిధిలో నమోదయ్యాయో తనిఖీ చేయండి.',
+          hi: 'जांचें कि क्या सभी सदस्यों के नाम पोर्टल पर पंजीकृत हैं।'
+        },
+        department: 'Department of Health & Family Welfare',
+        action: {
+          en: 'Search family card status using Aadhaar number on official portal',
+          te: 'ఆరోగ్యశ్రీ పోర్టల్ లో ఆధార్ నంబర్ ద్వారా వివరాలు సరిచూసుకోండి',
+          hi: 'पोर्टल पर आधार नंबर से कार्ड स्थिति देखें'
+        },
+        actionUrl: 'https://aarogyasri.ap.gov.in/',
+        actionLabel: {
+          en: 'Search Health Card Status',
+          te: 'కార్డు స్థితి పరిశీలించండి',
+          hi: 'कार्ड स्थिति देखें'
+        },
+        onlineAvailable: true,
+        offlineAvailable: true,
+        offlineVenue: 'Grama / Ward Sachivalayam (ANM / Welfare Assistant)',
+        documentsRequired: ['doc-aadhaar', 'doc-rice-card'],
+        dependencies: [],
+        expectedDays: 'Instant',
+        fee: 'Nil',
+        verificationStatus: 'verified'
+      },
+      {
+        stepNumber: 2,
+        stage: 'portal_submission',
+        title: {
+          en: 'e-KYC & New Member Addition at Sachivalayam',
+          te: 'సచివాలయంలో ఈ-కేవైసీ మరియు కొత్త సభ్యుల నమోదు',
+          hi: 'सचिवालय में ई-केवाईसी और नए सदस्यों को जोड़ना'
+        },
+        explanation: {
+          en: 'If newly married spouse or newborn baby is missing, Welfare & Education Assistant updates the family tree via GSWS portal using Aadhaar biometrics.',
+          te: 'కొత్తగా వివాహమైన కోడలు లేదా పుట్టిన బిడ్డ పేరు లేకపోతే సచివాలయ సంక్షేమ కార్యదర్శి ద్వారా వెంటనే నమోదు చేయవచ్చు.',
+          hi: 'सचिवालय में छूटे हुए सदस्यों को तुरंत जोड़ा जा सकता है।'
+        },
+        department: 'Grama Ward Sachivalayam (GSWS)',
+        action: {
+          en: 'Complete biometric authentication with ANM / Digital Assistant',
+          te: 'సచివాలయంలో బయోమెట్రిక్ ఈ-కేవైసీ పూర్తి చేయండి',
+          hi: 'बायोमेट्रिक ई-केवाईसी पूरा करें'
+        },
+        onlineAvailable: true,
+        offlineAvailable: true,
+        offlineVenue: 'Local Village/Ward Secretariat',
+        documentsRequired: ['doc-aadhaar', 'doc-rice-card'],
+        dependencies: [1],
+        expectedDays: '1-2 Days',
+        fee: 'Nil (Free Service)',
+        verificationStatus: 'verified'
+      },
+      {
+        stepNumber: 3,
+        stage: 'issuance',
+        title: {
+          en: 'Download Digital Aarogyasri Health Card & QR Code',
+          te: 'డిజిటల్ ఆరోగ్యశ్రీ కార్డు డౌన్‌లోడ్ & ప్లాస్టిక్ కార్డు సేకరణ',
+          hi: 'डिजिटल आरोग्यश्री कार्ड डाउनलोड करें'
+        },
+        explanation: {
+          en: 'Download the digital PVC card PDF containing unique QR code and individual UHIDs. Physical laminated cards are also distributed through Sachivalayam door delivery.',
+          te: 'క్యూఆర్ కోడ్ మరియు కుటుంబ సభ్యుల UHID నంబర్లతో కూడిన డిజిటల్ కార్డును డౌన్‌లోడ్ చేసుకోండి లేదా సచివాలయంలో తీసుకోండి.',
+          hi: 'क्यूआर कोड और यूएचआईडी युक्त डिजिटल कार्ड डाउनलोड करें।'
+        },
+        department: 'Aarogyasri Health Care Trust',
+        action: {
+          en: 'Download e-Card from Aarogyasri portal or DigiLocker',
+          te: 'ఆరోగ్యశ్రీ పోర్టల్ నుండి ఈ-హెల్త్ కార్డు డౌన్‌లోడ్ చేసుకోండి',
+          hi: 'ई-कार्ड डाउनलोड करें'
+        },
+        actionUrl: 'https://aarogyasri.ap.gov.in/',
+        actionLabel: {
+          en: 'Download e-Card',
+          te: 'ఈ-కార్డు డౌన్‌లోడ్ చేయండి',
+          hi: 'ई-कार्ड डाउनलोड करें'
+        },
+        onlineAvailable: true,
+        offlineAvailable: true,
+        offlineVenue: 'Grama / Ward Sachivalayam',
+        documentsRequired: [],
+        dependencies: [2],
+        expectedDays: 'Instant',
+        fee: 'Nil',
+        verificationStatus: 'verified'
+      },
+      {
+        stepNumber: 4,
+        stage: 'tracking',
+        title: {
+          en: 'Hospital Admission & Aarogya Mithra Desk Assistance',
+          te: 'ఆసుపత్రిలో అడ్మిషన్ & ఆరోగ్య మిత్ర డెస్క్ సహాయం',
+          hi: 'अस्पताल में भर्ती और आरोग्य मित्र सहायता'
+        },
+        explanation: {
+          en: 'At any network hospital, approach the 24/7 Aarogya Mithra helpdesk. Present card or Aadhaar for instant pre-authorization. Pre-op diagnostics, surgery, ICU, medications, and 10-day post-discharge medicines are 100% free.',
+          te: 'నెట్‌వర్క్ ఆసుపత్రిలోని ఆరోగ్య మిత్ర హెల్ప్‌డెస్క్ వద్ద కార్డు లేదా ఆధార్ చూపిస్తే తక్షణ ప్రీ-ఆథరైజేషన్ లభిస్తుంది. ఉచిత భోజనం మరియు ప్రయాణ ఖర్చులు కూడా వర్తిస్తాయి.',
+          hi: 'अस्पताल के आरोग्य मित्र डेस्क पर कार्ड दिखाएं; सर्जरी और दवाएं पूरी तरह निःशुल्क होंगी।'
+        },
+        department: 'Aarogyasri Network Hospitals & Helpdesk',
+        action: {
+          en: 'Locate nearest network hospital and check specialty coverage',
+          te: 'సమీపంలోని నెట్‌వర్క్ ఆసుపత్రుల జాబితాను ఆన్‌లైన్‌లో చూడండి',
+          hi: 'निकटतम नेटवर्क अस्पतालों की सूची देखें'
+        },
+        actionUrl: 'https://aarogyasri.ap.gov.in/networkhospitals',
+        actionLabel: {
+          en: 'Find Network Hospitals',
+          te: 'నెట్‌వర్క్ ఆసుపత్రుల జాబితా',
+          hi: 'नेटवर्क अस्पताल खोजें'
+        },
+        onlineAvailable: true,
+        offlineAvailable: true,
+        offlineVenue: 'All Government District/Teaching Hospitals & Empaneled Private Hospitals',
+        documentsRequired: ['doc-aadhaar'],
+        dependencies: [3],
+        expectedDays: 'Immediate (Within 2 Hours for Emergencies)',
+        fee: '₹0 (100% Cashless)',
+        verificationStatus: 'verified'
+      }
+    ],
+    dependencies: [],
+    officialPortal: 'aarogyasri.ap.gov.in',
+    officialPortalUrl: 'https://aarogyasri.ap.gov.in/',
+    trackingUrl: 'https://aarogyasri.ap.gov.in/',
+    onlineAvailable: true,
+    offlineAvailable: true,
+    offlineDetails: {
+      en: 'Doorstep facilitation by ANM and Welfare Assistant in all 15,004 Grama / Ward Sachivalayams, and 24/7 Aarogya Mithra desks at hospitals.',
+      te: 'రాష్ట్రంలోని 15,004 గ్రామ/వార్డు సచివాలయాల్లో ఏఎన్ఎం మరియు సంక్షేమ కార్యదర్శి ద్వారా ఉచిత సేవలు, నెట్‌వర్క్ ఆసుపత్రుల్లో 24/7 ఆరోగ్య మిత్ర సహాయం.',
+      hi: 'सभी ग्राम/वार्ड सचिवालयों और अस्पतालों में 24/7 आरोग्य मित्र सहायता।'
+    },
+    fees: [
+      {
+        item: 'Enrollment & Card Generation Fee',
+        amount: '₹0.00 (Completely Free)',
+        officialRule: 'Govt of AP Universal Health Coverage Mandate'
+      }
+    ],
+    processingTime: 'Instant if Rice Card exists; 3 days for member updation',
+    outputDocument: {
+      en: 'Dr. NTR / YSR Aarogyasri Universal Health Scheme Card with Family UHID & QR Code',
+      te: 'కుటుంబ సభ్యుల UHID మరియు క్యూఆర్ కోడ్ కలిగిన అధికారిక ఆరోగ్యశ్రీ కార్డు',
+      hi: 'यूएचआईडी और क्यूआर कोड युक्त आधिकारिक स्वास्थ्य कार्ड'
+    },
+    lastVerified: 'March 2026',
+    verificationStatus: 'verified',
+    sources: [
+      {
+        title: 'Dr. YSR / NTR Aarogyasri Health Care Trust Official Portal',
+        domain: 'aarogyasri.ap.gov.in',
+        url: 'https://aarogyasri.ap.gov.in/',
+        lastVerified: 'March 2026',
+        tier: 1,
+        verificationStatus: 'verified'
+      },
+      {
+        title: 'Andhra Pradesh Health & Family Welfare Department',
+        domain: 'cfw.ap.nic.in',
+        url: 'http://cfw.ap.nic.in/',
+        lastVerified: 'March 2026',
+        tier: 1,
+        verificationStatus: 'verified'
+      }
+    ],
+    exceptionCases: [
+      {
+        id: 'emergency-without-card',
+        title: {
+          en: 'Emergency Admission When Physical Card is Not With Patient',
+          te: 'కార్డు లేని అత్యవసర పరిస్థితుల్లో ఆసుపత్రి అడ్మిషన్',
+          hi: 'कार्ड के बिना आपातकालीन भर्ती'
+        },
+        resolution: {
+          en: 'Aarogya Mithra can immediately verify eligibility using patient or family member Aadhaar fingerprint authentication directly at the emergency counter.',
+          te: 'ఆసుపత్రి ఎమర్జెన్సీ కౌంటర్ వద్ద రోగి లేదా కుటుంబ సభ్యుల ఆధార్ వేలిముద్ర ద్వారా ఆరోగ్య మిత్ర తక్షణమే ఆమోదం పొందుతారు.',
+          hi: 'आपातकालीन काउंटर पर आधार फिंगरप्रिंट से तत्काल सत्यापन कराया जा सकता है।'
+        }
+      }
+    ]
+  },
+
+  // 13. SADAREM Disability Assessment & Certificate
+  {
+    id: 'ap-sadarem-cert',
+    serviceName: {
+      en: 'SADAREM Disability Assessment & Certificate',
+      te: 'సదరం (SADAREM) దివ్యాంగత్వ నిర్ధారణ & ధ్రువపత్రం',
+      hi: 'सदरेम दिव्यांगता मूल्यांकन और प्रमाण पत्र'
+    },
+    category: 'health',
+    department: 'Department for Women, Children, Disabled and Senior Citizens & Health Dept, AP',
+    state: 'Andhra Pradesh',
+    description: {
+      en: 'Scientific computerized disability evaluation under the Software for Assessment of Disabled Access Rehabilitation and Empowerment (SADAREM). Categorizes locomotor, visual, hearing, mental, or multiple disabilities, establishing official percentage required for ₹6,000-₹15,000 monthly pensions, RTC bus passes, assistive devices, and 4% reservation.',
+      te: 'కంప్యూటరీకృత శాస్త్రీయ పద్ధతిలో దివ్యాంగుల వైకల్య శాతాన్ని నిర్ధారించే అధికారిక వ్యవస్థ. రూ. 6,000 నుండి రూ. 15,000 నెలవారీ పింఛను, ఆర్టీసీ ఉచిత బస్సు పాస్, రిజర్వేషన్లు మరియు ఉపకరణాల కోసం ఈ ధ్రువపత్రం అత్యంత కీలకం.',
+      hi: 'सॉफ्टवेयर फॉर असेसमेंट ऑफ डिसेबल्ड एक्सेस (सदरेम) के तहत दिव्यांगता का वैज्ञानिक मूल्यांकन, जो मासिक पेंशन और आरक्षण के लिए आवश्यक है।'
+    },
+    eligibility: {
+      criteria: {
+        en: [
+          'Permanent resident of Andhra Pradesh suffering from physical, visual, hearing, speech, intellectual, neurological, or multiple impairments.',
+          'Minimum 40% permanent disability assessed by the District Medical Board to qualify for social security pensions and statutory quotas.',
+          'Severe or bedridden cases (80%+ or chronic neurological disorders) eligible for enhanced ₹15,000 pension.'
+        ],
+        te: [
+          'ఆంధ్రప్రదేశ్ శాశ్వత నివాసి అయి శారీరక, దృష్టి, వినికిడి, మానసిక లేదా బహుళ వైకల్యం కలిగి ఉండాలి.',
+          'ప్రభుత్వ పింఛను మరియు రిజర్వేషన్ అర్హతకు జిల్లా మెడికల్ బోర్డు ద్వారా కనీసం 40% వైకల్యం నిర్ధారించబడాలి.',
+          'తీవ్రమైన వైకల్యం (80% పైగా లేదా మంచానికే పరిమితమైన వారికి) రూ. 15,000 ప్రత్యేక పింఛను లభిస్తుంది.'
+        ],
+        hi: [
+          'आंध्र प्रदेश का निवासी जिसे न्यूनतम 40% स्थायी दिव्यांगता हो।',
+          'पेंशन और सरकारी लाभों के लिए जिला मेडिकल बोर्ड का प्रमाणीकरण अनिवार्य है।'
+        ]
+      }
+    },
+    documents: [
+      {
+        id: 'doc-aadhaar',
+        name: {
+          en: 'Aadhaar Card of Disabled Person',
+          te: 'దివ్యాంగుని ఆధార్ కార్డు',
+          hi: 'दिव्यांग व्यक्ति का आधार कार्ड'
+        },
+        purpose: {
+          en: 'Identity verification and unique SADAREM permanent registration ID generation.',
+          te: 'గుర్తింపు మరియు జీవితకాల సదరం ఐడీ కేటాయింపు.',
+          hi: 'पहचान और स्थायी सदरेम पंजीकरण।'
+        },
+        category: 'required',
+        issuingAuthority: 'UIDAI',
+        officialPortal: 'myaadhaar.uidai.gov.in',
+        officialPortalUrl: 'https://myaadhaar.uidai.gov.in/',
+        estimatedEffort: 'Instant via DigiLocker',
+        whyRequired: {
+          en: 'Prevents fraudulent proxy assessments and enables direct DBT pension routing.',
+          te: 'బోగస్ క్లెయిమ్‌లను నివారించి ప్రత్యక్ష నగదు బదిలీ (DBT) కి లింక్ చేయడానికి.',
+          hi: 'प्रत्यक्ष लाभ अंतरण और बायोमेट्रिक सत्यापन के लिए।'
+        },
+        dependencies: [],
+        obtainedFrom: 'UIDAI',
+        status: 'need'
+      },
+      {
+        id: 'doc-medical-case-records',
+        name: {
+          en: 'Past Clinical Diagnosis & Medical Records (Discharge summary, X-rays, Audiometry report)',
+          te: 'గత వైద్య రికార్డులు / డిశ్చార్జ్ సమ్మరీ / ఎక్స్-రేలు / ఆడియోమెట్రీ రిపోర్టులు',
+          hi: 'पूर्व नैदानिक रिपोर्ट, एक्स-रे या ऑडियोमेट्री रिपोर्ट'
+        },
+        purpose: {
+          en: 'Clinical baseline for the Medical Board specialists to accurately measure disability loss percentage.',
+          te: 'మెడికల్ బోర్డు వైద్యులు వైకల్య శాతాన్ని ఖచ్చితంగా లెక్కించడానికి ప్రాథమిక క్లినికల్ ఆధారాలు.',
+          hi: 'चिकित्सा बोर्ड द्वारा दिव्यांगता प्रतिशत मापने के लिए आवश्यक।'
+        },
+        category: 'required',
+        issuingAuthority: 'Government or Recognized Hospitals / Orthopedic / ENT / Eye Specialists',
+        officialPortal: 'dme.ap.nic.in',
+        officialPortalUrl: 'http://dme.ap.nic.in/',
+        estimatedEffort: 'Collect existing hospital files',
+        whyRequired: {
+          en: 'Specialist doctors evaluate clinical history before performing physical examination.',
+          te: 'వైద్య నిపుణులు శారీరక పరీక్షకు ముందు మునుపటి చికిత్స వివరాలను పరిశీలిస్తారు.',
+          hi: 'जांच के समय डॉक्टरों को प्रस्तुत करना अनिवार्य है।'
+        },
+        dependencies: [],
+        obtainedFrom: 'Hospital where treatment/surgery was performed',
+        status: 'need'
+      },
+      {
+        id: 'doc-disability-photos',
+        name: {
+          en: '3 Recent Full-Length Photographs Showing Visible Disability',
+          te: 'వైకల్యం స్పష్టంగా కనిపించే 3 తాజా పూర్తి శరీర ఛాయాచిత్రాలు (ఫోటోలు)',
+          hi: 'दिव्यांगता दर्शाती 3 हालिया तस्वीरें'
+        },
+        purpose: {
+          en: 'Physical visual corroboration affixed on the permanent certificate.',
+          te: 'సదరం అధికారిక సర్టిఫికెట్ పై ముద్రించడానికి.',
+          hi: 'स्थायी प्रमाण पत्र पर लगाने के लिए।'
+        },
+        category: 'required',
+        issuingAuthority: 'Local Studio',
+        officialPortal: 'sadarem.ap.gov.in',
+        officialPortalUrl: 'https://sadarem.ap.gov.in/',
+        estimatedEffort: 'Instant from local studio',
+        whyRequired: {
+          en: 'Mandatory physical credential on the laminated assessment certificate.',
+          te: 'సర్టిఫికెట్ దుర్వినియోగం కాకుండా ఉండటానికి.',
+          hi: 'प्रमाण पत्र के भौतिक सत्यापन के लिए।'
+        },
+        dependencies: [],
+        obtainedFrom: 'Local Photo Studio',
+        status: 'need'
+      }
+    ],
+    steps: [
+      {
+        stepNumber: 1,
+        stage: 'eligibility',
+        title: {
+          en: 'Slot Booking at Grama / Ward Sachivalayam',
+          te: 'గ్రామ/వార్డు సచివాలయంలో సదరం క్యాంప్ స్లాట్ బుకింగ్',
+          hi: 'ग्राम/वार्ड सचिवालय में सदरेम कैंप स्लॉट बुकिंग'
+        },
+        explanation: {
+          en: 'Digital Assistant books an appointment slot on SADAREM portal selecting the nearest Area/District Government Hospital assessment camp date.',
+          te: 'సచివాలయంలో మీ ఆధార్ తో సమీప ఏరియా లేదా జిల్లా ఆసుపత్రి మెడికల్ బోర్డు క్యాంప్ స్లాట్ ఉచితంగా బుక్ చేస్తారు.',
+          hi: 'सचिवालय में निकटतम जिला अस्पताल कैंप के लिए स्लॉट बुक किया जाता है।'
+        },
+        department: 'Grama Ward Sachivalayam (GSWS)',
+        action: {
+          en: 'Visit Sachivalayam with Aadhaar to book hospital board camp slot',
+          te: 'ఆధార్ తో సచివాలయం సందర్శించి ఆసుపత్రి బోర్డు స్లాట్ బుక్ చేసుకోండి',
+          hi: 'सचिवालय जाकर कैंप की तारीख और टोकन लें'
+        },
+        actionUrl: 'https://sadarem.ap.gov.in/',
+        actionLabel: {
+          en: 'Check Camp Schedules',
+          te: 'క్యాంప్ షెడ్యూల్స్ చూడండి',
+          hi: 'कैंप शेड्यूल देखें'
+        },
+        onlineAvailable: true,
+        offlineAvailable: true,
+        offlineVenue: 'Local Village/Ward Secretariat',
+        documentsRequired: ['doc-aadhaar'],
+        dependencies: [],
+        expectedDays: '1 Day',
+        fee: 'Nil (Free Service)',
+        verificationStatus: 'verified'
+      },
+      {
+        stepNumber: 2,
+        stage: 'verification',
+        title: {
+          en: 'Clinical Examination by District Medical Board',
+          te: 'జిల్లా మెడికల్ బోర్డు వైద్య నిపుణుల పరీక్ష',
+          hi: 'जिला मेडिकल बोर्ड द्वारा शारीरिक जांच'
+        },
+        explanation: {
+          en: 'Attend the allotted hospital camp. A panel of specialist doctors (Orthopedic surgeon, ENT surgeon, Ophthalmologist, Psychiatrist) examines the person and measures functional impairment.',
+          te: 'కేటాయించిన ఆసుపత్రి క్యాంప్‌కు వెళ్లి సంబంధిత నిపుణులైన వైద్యుల వద్ద పరీక్ష చేయించుకోవాలి.',
+          hi: 'अस्पताल जाकर विशेषज्ञ डॉक्टरों की समिति द्वारा जांच करवाएं।'
+        },
+        department: 'District Medical & Health Office (DMHO) / Area Hospital',
+        action: {
+          en: 'Present token and medical history files to the board doctors',
+          te: 'టోకెన్ మరియు మునుపటి మెడికల్ రిపోర్టులను బోర్డు వైద్యులకు చూపించండి',
+          hi: 'टोकन और मेडिकल फाइलें डॉक्टरों को दिखाएं'
+        },
+        onlineAvailable: false,
+        offlineAvailable: true,
+        offlineVenue: 'District / Area Headquarters Hospital Assessment Hall',
+        documentsRequired: ['doc-aadhaar', 'doc-medical-case-records', 'doc-disability-photos'],
+        dependencies: [1],
+        expectedDays: '1 Day (Camp Day)',
+        fee: 'Nil (Board Examination is 100% Free)',
+        verificationStatus: 'verified'
+      },
+      {
+        stepNumber: 3,
+        stage: 'department_processing',
+        title: {
+          en: 'SADAREM Software Algorithm Disability Calculation',
+          te: 'సదరం సాఫ్ట్‌వేర్ ద్వారా వైకల్య శాతం నిర్ధారణ',
+          hi: 'सॉफ्टवेयर द्वारा दिव्यांगता प्रतिशत की गणना'
+        },
+        explanation: {
+          en: 'Doctors input standardized clinical measurements into the SADAREM portal. The algorithm calculates the objective disability percentage (e.g. 52% locomotor disability) to eliminate human subjectivity.',
+          te: 'వైద్యుల క్లినికల్ రీడింగులను సదరం సాఫ్ట్‌వేర్ లో నమోదు చేయగానే కంప్యూటర్ స్వయంచాలకంగా శాస్త్రీయ వైకల్య శాతాన్ని గణిస్తుంది.',
+          hi: 'कम्प्यूटरीकृत प्रणाली निष्पक्ष रूप से दिव्यांगता प्रतिशत निर्धारित करती है।'
+        },
+        department: 'SADAREM Technical Cell & Health Dept',
+        action: {
+          en: 'Superintendent and Medical Board digitally certify the report',
+          te: 'ఆసుపత్రి సూపరింటెండెంట్ మరియు బోర్డు సభ్యులు డిజిటల్ ఆమోదం తెలుపుతారు',
+          hi: 'मेडिकल बोर्ड द्वारा रिपोर्ट प्रमाणित की जाती है'
+        },
+        onlineAvailable: true,
+        offlineAvailable: true,
+        documentsRequired: [],
+        dependencies: [2],
+        expectedDays: '2-3 Working Days',
+        fee: 'Nil',
+        verificationStatus: 'verified'
+      },
+      {
+        stepNumber: 4,
+        stage: 'issuance',
+        title: {
+          en: 'Certificate Issuance & Automatic Pension Flagging',
+          te: 'సదరం ఐడీ కార్డు జారీ & ఆటోమేటిక్ పింఛన్ మంజూరు లింకేజ్',
+          hi: 'सदरेम आईडी प्रमाण पत्र और स्वतः पेंशन लिंकिंग'
+        },
+        explanation: {
+          en: 'A laminated SADAREM Certificate with unique 17-digit ID and QR code is issued. If disability is ≥40%, data automatically flows to the GSWS portal to trigger the monthly disability pension.',
+          te: '17 అంకెల ప్రత్యేక ఐడీ మరియు క్యూఆర్ కోడ్ తో కూడిన శాశ్వత సదరం సర్టిఫికెట్ లభిస్తుంది. 40% పైగా ఉంటే పింఛను ప్రక్రియ వెంటనే ప్రారంభమవుతుంది.',
+          hi: '17-अंकों की स्थायी आईडी युक्त प्रमाण पत्र मिलता है और पेंशन प्रक्रिया स्वतः जुड़ जाती है।'
+        },
+        department: 'Disabled Welfare & GSWS Dept',
+        action: {
+          en: 'Download certificate online or collect laminated copy at Sachivalayam',
+          te: 'సదరం పోర్టల్ నుండి డౌన్‌లోడ్ చేసుకోండి లేదా సచివాలయంలో తీసుకోండి',
+          hi: 'पोर्टल से डाउनलोड करें या सचिवालय से प्राप्त करें'
+        },
+        actionUrl: 'https://sadarem.ap.gov.in/',
+        actionLabel: {
+          en: 'Download SADAREM Certificate',
+          te: 'సదరం సర్టిఫికెట్ డౌన్‌లోడ్',
+          hi: 'सर्टिफिकेट डाउनलोड करें'
+        },
+        onlineAvailable: true,
+        offlineAvailable: true,
+        offlineVenue: 'Grama / Ward Sachivalayam Welfare Assistant Desk',
+        documentsRequired: [],
+        dependencies: [3],
+        expectedDays: '5 Working Days from Camp',
+        fee: 'Nil',
+        verificationStatus: 'verified'
+      }
+    ],
+    dependencies: [],
+    officialPortal: 'sadarem.ap.gov.in',
+    officialPortalUrl: 'https://sadarem.ap.gov.in/',
+    trackingUrl: 'https://sadarem.ap.gov.in/',
+    onlineAvailable: true,
+    offlineAvailable: true,
+    offlineDetails: {
+      en: 'Slot booking at all 15,004 Grama / Ward Sachivalayams; physical clinical assessment conducted at government area/district hospitals on designated camp days.',
+      te: 'అన్ని గ్రామ/వార్డు సచివాలయాల్లో ఉచిత స్లాట్ బుకింగ్; జిల్లా/ఏరియా ఆసుపత్రులలో వైద్య పరీక్షల నిర్వహణ.',
+      hi: 'सभी ग्राम/वार्ड सचिवालयों में स्लॉट बुकिंग और जिला अस्पतालों में मूल्यांकन।'
+    },
+    fees: [
+      {
+        item: 'Medical Board Assessment & Certificate Charge',
+        amount: '₹0.00 (Completely Free)',
+        officialRule: 'AP Rights of Persons with Disabilities Rules'
+      }
+    ],
+    processingTime: '7-10 Days from camp attendance',
+    outputDocument: {
+      en: 'Official Government of Andhra Pradesh SADAREM Disability Certificate with 17-digit ID & QR Code',
+      te: '17 అంకెల ప్రత్యేక ఐడీ మరియు క్యూఆర్ కోడ్ కలిగిన అధికారిక సదరం దివ్యాంగ ధ్రువపత్రం',
+      hi: 'आधिकारिक सदरेम दिव्यांगता प्रमाण पत्र'
+    },
+    lastVerified: 'March 2026',
+    verificationStatus: 'verified',
+    sources: [
+      {
+        title: 'Andhra Pradesh SADAREM Portal',
+        domain: 'sadarem.ap.gov.in',
+        url: 'https://sadarem.ap.gov.in/',
+        lastVerified: 'March 2026',
+        tier: 1,
+        verificationStatus: 'verified'
+      },
+      {
+        title: 'Department for Women, Children, Disabled and Senior Citizens',
+        domain: 'westernghats.ap.gov.in',
+        url: 'https://wdsc.ap.gov.in/',
+        lastVerified: 'March 2026',
+        tier: 1,
+        verificationStatus: 'verified'
+      }
+    ],
+    exceptionCases: [
+      {
+        id: 'temporary-vs-permanent',
+        title: {
+          en: 'Temporary Disability (e.g. Post-Accident Fracture / Surgery Recovery)',
+          te: 'తాత్కాలిక వైకల్యం (ప్రమాదాలు లేదా ఆపరేషన్ తర్వాత కోలుకునే సందర్భం)',
+          hi: 'अस्थायी दिव्यांगता'
+        },
+        resolution: {
+          en: 'Board issues a temporary certificate valid for 1 to 5 years. Re-assessment camp can be booked when due for renewal to evaluate permanent stabilization.',
+          te: 'వైద్య బోర్డు 1 నుండి 5 సంవత్సరాల కాలపరిమితితో తాత్కాలిక సర్టిఫికెట్ జారీ చేస్తుంది. గడువు ముగిసిన తర్వాత శాశ్వత నిర్ధారణకు రీ-అసెస్మెంట్ చేయించుకోవచ్చు.',
+          hi: '1 से 5 साल की वैधता वाला अस्थायी प्रमाण पत्र दिया जाता है, जिसे बाद में नवीनीकृत किया जा सकता है।'
+        }
+      }
+    ]
+  },
+
+  // 14. House Site Patta & Allotment (Navaratnalu - Pedalandariki Illu)
+  {
+    id: 'ap-house-site-patta',
+    serviceName: {
+      en: 'House Site Patta & Allotment (Pedalandariki Illu)',
+      te: 'ఇళ్ల స్థలాల పట్టా & కేటాయింపు (పేదలందరికీ ఇళ్లు)',
+      hi: 'घर की जमीन का पट्टा और आवंटन'
+    },
+    category: 'housing',
+    department: 'Andhra Pradesh State Housing Corporation Limited (APSHCL) & Revenue Department',
+    state: 'Andhra Pradesh',
+    description: {
+      en: 'Statutory allotment and registration of D-Form house site pattas in notified government housing layouts (Jagananna / NTR Housing Colonies) in the name of the woman of the family, providing zero-cost land rights and construction subsidies.',
+      te: 'సొంత ఇల్లు లేని పేద కుటుంబాలలో మహిళ పేరు మీద ఉచితంగా ఇళ్ల స్థలం కేటాయించి రిజిస్టర్డ్ పట్టా మరియు గృహనిర్మాణ సబ్సిడీ అందించే పథకం.',
+      hi: 'बेघर परिवारों की महिला मुखिया के नाम पर सरकारी आवास लेआउट में मुफ्त घर की जमीन का पट्टा और निर्माण सहायता।'
+    },
+    eligibility: {
+      criteria: {
+        en: [
+          'Must be a permanent resident of Andhra Pradesh and hold a valid BPL Rice Card.',
+          'Family must not own any pucca residential house or urban apartment anywhere in India.',
+          'Allotment is registered exclusively in the name of the female head of household (Stree Shakthi mandate).',
+          'Annual family income must adhere to BPL guidelines (rural < ₹1,20,000, urban < ₹1,44,000).'
+        ],
+        te: [
+          'ఆంధ్రప్రదేశ్ శాశ్వత నివాసి అయి చెల్లుబాటు అయ్యే తెల్ల రేషన్ కార్డు (రైస్ కార్డు) కలిగి ఉండాలి.',
+          'దేశంలో ఎక్కడా కుటుంబ సభ్యుల పేరు మీద సొంత పక్కా ఇల్లు ఉండకూడదు.',
+          'ఇళ్ల పట్టా కుటుంబంలోని మహిళ పేరు మీదే రిజిస్టర్ చేయబడుతుంది.',
+          'వార్షిక కుటుంబ ఆదాయం గ్రామీణ ప్రాంతంలో రూ. 1.20 లక్షలు, పట్టణ ప్రాంతంలో రూ. 1.44 లక్షల లోపు ఉండాలి.'
+        ],
+        hi: [
+          'आवेदक के पास वैध राशन कार्ड होना चाहिए और परिवार के पास कोई पक्का मकान नहीं होना चाहिए।',
+          'पट्टा अनिवार्य रूप से परिवार की महिला मुखिया के नाम पर ही पंजीकृत किया जाता है।'
+        ]
+      }
+    },
+    documents: [
+      {
+        id: 'doc-aadhaar-woman',
+        name: {
+          en: 'Aadhaar Card of Female Head of Family & Husband/Nominee',
+          te: 'కుటుంబ మహిళా యజమాని మరియు భర్త/నామినీ ఆధార్ కార్డు',
+          hi: 'महिला मुखिया और पति का आधार कार्ड'
+        },
+        purpose: {
+          en: 'Biometric verification and land registry title ownership generation.',
+          te: 'భూమి యాజమాన్య హక్కులు మరియు రిజిస్ట్రేషన్ కొరకు బయోమెట్రిక్ నిర్ధారణ.',
+          hi: 'स्वामित्व पंजीकरण और बायोमेट्रिक सत्यापन।'
+        },
+        category: 'required',
+        issuingAuthority: 'UIDAI',
+        officialPortal: 'myaadhaar.uidai.gov.in',
+        officialPortalUrl: 'https://myaadhaar.uidai.gov.in/',
+        estimatedEffort: 'Instant via DigiLocker',
+        whyRequired: {
+          en: 'Statutory requirement for electronic deed execution and de-duplication.',
+          te: 'రిజిస్ట్రేషన్ మరియు డూప్లికేషన్ నివారణకు తప్పనిసరి.',
+          hi: 'भूमि रजिस्ट्री के लिए अनिवार्य।'
+        },
+        dependencies: [],
+        obtainedFrom: 'UIDAI',
+        status: 'need'
+      },
+      {
+        id: 'doc-rice-card',
+        name: {
+          en: 'AP Rice Card (Food Security Card)',
+          te: 'ఆంధ్రప్రదేశ్ బియ్యం కార్డు (రేషన్ కార్డు)',
+          hi: 'आंध्र प्रदेश चावल कार्ड'
+        },
+        purpose: {
+          en: 'Conclusive proof of BPL economic status and family unit constitution.',
+          te: 'దారిద్ర్యరేఖకు దిగువన ఉన్నట్లు మరియు కుటుంబ సభ్యుల సంఖ్య నిర్ధారణ.',
+          hi: 'बीपीएल स्थिति का आधिकारिक प्रमाण।'
+        },
+        category: 'required',
+        issuingAuthority: 'Department of Consumer Affairs, Food & Civil Supplies, AP',
+        officialPortal: 'epdsap.ap.gov.in',
+        officialPortalUrl: 'https://epdsap.ap.gov.in/',
+        estimatedEffort: 'Instant lookup via epdsap.ap.gov.in',
+        whyRequired: {
+          en: 'Mandatory filter for social audit selection under state housing policy.',
+          te: 'గృహనిర్మాణ పథకంలో సామాజిక తనిఖీకి ప్రాథమిక ఆధారం.',
+          hi: 'चयन प्रक्रिया का मुख्य मानदंड।'
+        },
+        dependencies: [],
+        obtainedFrom: 'Grama Ward Sachivalayam Civil Supplies Desk',
+        status: 'need'
+      },
+      {
+        id: 'doc-no-house-affidavit',
+        name: {
+          en: 'Self-Declaration / Affidavit of Not Owning a Pucca House',
+          te: 'సొంత పక్కా ఇల్లు లేనట్లు స్వయం ప్రకటన / అఫిడవిట్',
+          hi: 'पक्का मकान न होने का स्व-घोषणा पत्र'
+        },
+        purpose: {
+          en: 'Statutory declaration subject to field inquiry by Village Revenue Officer.',
+          te: 'క్షేత్రస్థాయి విచారణలో నిరూపించాల్సిన చట్టబద్ధమైన ప్రకటన.',
+          hi: 'भूमिहीन और आवासहीन होने की वैधानिक घोषणा।'
+        },
+        category: 'required',
+        issuingAuthority: 'Self / Notary',
+        officialPortal: 'housing.ap.gov.in',
+        officialPortalUrl: 'https://housing.ap.gov.in/',
+        estimatedEffort: 'Instant standard format available at Sachivalayam',
+        whyRequired: {
+          en: 'Ensures scarce public land is distributed strictly to genuinely homeless citizens.',
+          te: 'నిజమైన నిరాశ్రయులకు మాత్రమే ప్రభుత్వ స్థలాలు అందేలా చూడటానికి.',
+          hi: 'पारदर्शिता और निष्पक्षता सुनिश्चित करने हेतु।'
+        },
+        dependencies: [],
+        obtainedFrom: 'Grama / Ward Sachivalayam Housing Desk',
+        status: 'need'
+      }
+    ],
+    steps: [
+      {
+        stepNumber: 1,
+        stage: 'form_fill',
+        title: {
+          en: 'Application Submission at Sachivalayam',
+          te: 'సచివాలయంలో గృహ స్థల దరఖాస్తు సమర్పణ',
+          hi: 'सचिवालय में आवास स्थल हेतु आवेदन'
+        },
+        explanation: {
+          en: 'Submit application through the Sachivalayam Housing Assistant / Digital Assistant with female applicant Aadhaar and family details.',
+          te: 'సచివాలయ హౌసింగ్ అసిస్టెంట్ వద్ద దరఖాస్తును మహిళ పేరుతో సమర్పించండి.',
+          hi: 'महिला मुखिया के नाम से सचिवालय में आवेदन जमा करें।'
+        },
+        department: 'Grama Ward Sachivalayam & APSHCL',
+        action: {
+          en: 'Register application with family biometrics and get acknowledgment',
+          te: 'బయోమెట్రిక్ ఈ-కేవైసీ ద్వారా దరఖాస్తు నమోదు చేయండి',
+          hi: 'ई-केवाईसी के साथ आवेदन पंजीकृत करें'
+        },
+        actionUrl: 'https://housing.ap.gov.in/',
+        actionLabel: {
+          en: 'View Housing Guidelines',
+          te: 'మార్గదర్శకాలు చూడండి',
+          hi: 'दिशानिर्देश देखें'
+        },
+        onlineAvailable: true,
+        offlineAvailable: true,
+        offlineVenue: 'Local Village/Ward Secretariat Housing Desk',
+        documentsRequired: ['doc-aadhaar-woman', 'doc-rice-card', 'doc-no-house-affidavit'],
+        dependencies: [],
+        expectedDays: '1 Day',
+        fee: 'Nil (Free Application)',
+        verificationStatus: 'verified'
+      },
+      {
+        stepNumber: 2,
+        stage: 'verification',
+        title: {
+          en: 'Joint Social Audit & Field Verification by VRO / RI',
+          te: 'గ్రామ రెవెన్యూ అధికారి (VRO) మరియు సంక్షేమ కార్యదర్శి సంయుక్త విచారణ',
+          hi: 'वीआरओ और कल्याण सचिव द्वारा संयुक्त फील्ड सत्यापन'
+        },
+        explanation: {
+          en: 'Field team visits current dwelling (rented room/thatched hut) to verify homeless status and social audit list published in Grama Sabha.',
+          te: 'ప్రస్తుత నివాస ప్రాంతాన్ని ప్రత్యక్షంగా పరిశీలించి గ్రామసభలో సోషల్ ఆడిట్ జాబితా ప్రదర్శిస్తారు.',
+          hi: 'अधिकारी वास्तविक स्थिति की जांच करते हैं और ग्राम सभा में सूची प्रकाशित की जाती है।'
+        },
+        department: 'Revenue & Housing Department',
+        action: {
+          en: 'Cooperate with field inquiry and Grama Sabha publication',
+          te: 'క్షేత్రస్థాయి అధికారుల విచారణకు సహకరించండి',
+          hi: 'फील्ड जांच में विवरण प्रस्तुत करें'
+        },
+        onlineAvailable: false,
+        offlineAvailable: true,
+        offlineVenue: 'Applicant Residence & Village Secretariat Notice Board',
+        documentsRequired: ['doc-rice-card'],
+        dependencies: [1],
+        expectedDays: '7 Working Days',
+        fee: 'Nil',
+        verificationStatus: 'verified'
+      },
+      {
+        stepNumber: 3,
+        stage: 'issuance',
+        title: {
+          en: 'Plot Allotment in Layout & Registered D-Form Patta Handover',
+          te: 'లేఅవుట్ లో ప్లాట్ కేటాయింపు & రిజిస్టర్డ్ డి-ఫారం పట్టా అందజేత',
+          hi: 'लेआउट में प्लॉट आवंटन और पंजीकृत डी-फॉर्म पट्टा वितरण'
+        },
+        explanation: {
+          en: 'Tahsildar and Joint Collector approve allotment in the designated government layout. Form-D Conveyance Deed / Patta is formally registered and handed over to the woman head.',
+          te: 'తహశీల్దార్ వారిచే నిర్దేశిత లేఅవుట్‌లో ప్లాట్ నంబర్ కేటాయించి రిజిస్టర్డ్ పట్టా పత్రాలు మహిళకు అందజేస్తారు.',
+          hi: 'तहसीलदार द्वारा अधिकृत लेआउट में प्लॉट नंबर के साथ पंजीकृत पट्टा दिया जाता है।'
+        },
+        department: 'Revenue Department (Tahsildar) & Sub-Registrar',
+        action: {
+          en: 'Receive officially sealed and mapped House Site Patta document',
+          te: 'అధికారిక ముద్ర కలిగిన ఇళ్ల పట్టా ధ్రువపత్రం అందుకోండి',
+          hi: 'आधिकारिक पट्टा दस्तावेज प्राप्त करें'
+        },
+        actionUrl: 'https://housing.ap.gov.in/',
+        actionLabel: {
+          en: 'Track Patta Status',
+          te: 'పట్టా స్థితిని పరిశీలించండి',
+          hi: 'पट्टा स्थिति देखें'
+        },
+        onlineAvailable: true,
+        offlineAvailable: true,
+        offlineVenue: 'Grama / Ward Sachivalayam or Mandal Revenue Office (MRO)',
+        documentsRequired: [],
+        dependencies: [2],
+        expectedDays: '15-20 Days during allotment rounds',
+        fee: '₹0 (Zero Stamp Duty & Zero Registration Fee)',
+        verificationStatus: 'verified'
+      },
+      {
+        stepNumber: 4,
+        stage: 'tracking',
+        title: {
+          en: 'Geo-Tagging & Construction Subsidy Release (DBT)',
+          te: 'జియో ట్యాగింగ్ & గృహనిర్మాణ సబ్సిడీ విడుదల (DBT)',
+          hi: 'जियो-टैगिंग और निर्माण सब्सिडी का प्रत्यक्ष अंतरण'
+        },
+        explanation: {
+          en: 'Housing Assistant performs baseline geotagging. Stage-wise construction funds (basement, roof level, completion) and free sand/cement allocations are released directly to bank account.',
+          te: 'ప్లాట్ జియో-ట్యాగింగ్ చేసి బేస్‌మెంట్, గోడలు, శ్లాబ్ దశలలో నేరుగా లబ్ధిదారుని బ్యాంక్ ఖాతాకు నిధులు మరియు ఉచిత ఇసుక విడుదల చేస్తారు.',
+          hi: 'जियो-टैगिंग के बाद निर्माण के विभिन्न चरणों में सब्सिडी सीधे बैंक खाते में भेजी जाती है।'
+        },
+        department: 'AP State Housing Corporation Limited (APSHCL)',
+        action: {
+          en: 'Track stage inspection and payment clearance online',
+          te: 'నిర్మాణ దశలు మరియు బిల్లుల చెల్లింపు స్థితిని ఆన్‌లైన్‌లో ట్రాక్ చేయండి',
+          hi: 'भुगतान की स्थिति ऑनलाइन ट्रैक करें'
+        },
+        actionUrl: 'https://housing.ap.gov.in/',
+        actionLabel: {
+          en: 'Housing Beneficiary Portal',
+          te: 'హౌసింగ్ లబ్ధిదారుల పోర్టల్',
+          hi: 'आवास लाभार्थी पोर्टल'
+        },
+        onlineAvailable: true,
+        offlineAvailable: true,
+        offlineVenue: 'Housing Layout Project Site / Sachivalayam',
+        documentsRequired: [],
+        dependencies: [3],
+        expectedDays: 'Disbursed in stages upon construction progress',
+        fee: 'Nil',
+        verificationStatus: 'verified'
+      }
+    ],
+    dependencies: [],
+    officialPortal: 'housing.ap.gov.in',
+    officialPortalUrl: 'https://housing.ap.gov.in/',
+    trackingUrl: 'https://housing.ap.gov.in/',
+    onlineAvailable: true,
+    offlineAvailable: true,
+    offlineDetails: {
+      en: 'Field operations managed by Village Housing Assistant and VRO across all 26 districts of Andhra Pradesh.',
+      te: 'ఆంధ్రప్రదేశ్ లోని అన్ని జిల్లాలలో సచివాలయ హౌసింగ్ అసిస్టెంట్ మరియు VRO ద్వారా నిర్వహణ.',
+      hi: 'सभी 26 जिलों में ग्राम आवास सहायक और वीआरओ द्वारा सहायता।'
+    },
+    fees: [
+      {
+        item: 'House Site Application & Registration Fee',
+        amount: '₹0.00 (100% Subsidized)',
+        officialRule: 'Govt of AP Pedalandariki Illu Special Gazette'
+      }
+    ],
+    processingTime: 'Sanctioned during scheduled district allotment drives',
+    outputDocument: {
+      en: 'Government of Andhra Pradesh Registered D-Form House Site Patta & Allotment Order',
+      te: 'ఆంధ్రప్రదేశ్ ప్రభుత్వం జారీ చేసిన రిజిస్టర్డ్ డి-ఫారం ఇళ్ల స్థలం పట్టా',
+      hi: 'पंजीकृत डी-फॉर्म हाउस साइट पट्टा और आवंटन आदेश'
+    },
+    lastVerified: 'March 2026',
+    verificationStatus: 'verified',
+    sources: [
+      {
+        title: 'Andhra Pradesh State Housing Corporation Limited',
+        domain: 'housing.ap.gov.in',
+        url: 'https://housing.ap.gov.in/',
+        lastVerified: 'March 2026',
+        tier: 1,
+        verificationStatus: 'verified'
+      },
+      {
+        title: 'CCLA AP Revenue Land Allocation Wing',
+        domain: 'ccla.ap.gov.in',
+        url: 'https://ccla.ap.gov.in/',
+        lastVerified: 'March 2026',
+        tier: 1,
+        verificationStatus: 'verified'
+      }
+    ]
+  },
+
+  // 15. e-Crop Booking & Rythu Bharosa Cultivator Verification
+  {
+    id: 'ap-ecrop-booking',
+    serviceName: {
+      en: 'e-Crop Booking & Rythu Bharosa (e-Panta)',
+      te: 'ఈ-క్రాప్ బుకింగ్ & రైతు భరోసా (ఈ-పంట నమోదు)',
+      hi: 'ई-क्रॉप बुकिंग और किसान फसल सत्यापन (ई-पंटा)'
+    },
+    category: 'agriculture',
+    department: 'Department of Agriculture & Revenue Department (CCLA), Government of Andhra Pradesh',
+    state: 'Andhra Pradesh',
+    description: {
+      en: 'Comprehensive digital recording (e-Panta) of crops sown across every survey number in Andhra Pradesh by owner and tenant farmers, establishing official entitlement for Free Crop Insurance, Disaster Relief Subsidy, MSP Grain Procurement, and zero-interest crop loans.',
+      te: 'రాష్ట్రంలోని ప్రతి సర్వే నంబర్ లో సాగు చేసిన పంటను డిజిటల్ గా నమోదు చేసే అధికారిక ఈ-పంట ప్రక్రియ. ఉచిత పంటల బీమా, సున్నా వడ్డీ రుణాలు, నష్టపరిహార ఇన్‌పుట్ సబ్సిడీ మరియు మద్దతు ధరకు (MSP) ధాన్యం విక్రయించడానికి ఇది తప్పనిసరి.',
+      hi: 'राज्य में बोई गई फसलों का अनिवार्य डिजिटल रिकॉर्ड (ई-पंटा), जो मुफ्त फसल बीमा, आपदा राहत और न्यूनतम समर्थन मूल्य (MSP) पर खरीद के लिए आवश्यक है।'
+    },
+    eligibility: {
+      criteria: {
+        en: [
+          'Landowner farmers cultivating their own land registered on Webland / Meebhoomi 1-B.',
+          'Tenant / cultivator farmers possessing a valid Crop Cultivator Rights Card (CCRC) for the current agricultural season.',
+          'Physical crop must be actively cultivated in the field during the notified Kharif or Rabi window.'
+        ],
+        te: [
+          'వెబ్‌ల్యాండ్/మీభూమి 1-బి రికార్డుల్లో పేరున్న స్వంత భూమి సాగుదారులైన రైతులు.',
+          'ప్రస్తుత పంట కాలానికి చెల్లుబాటు అయ్యే కౌలు రైతు గుర్తింపు కార్డు (CCRC) కలిగిన కౌలుదారులు.',
+          'ఖరీఫ్ లేదా రబీ సీజన్ లో పొలంలో ప్రత్యక్షంగా పంట సాగులో ఉండాలి.'
+        ],
+        hi: [
+          'अपनी भूमि पर खेती करने वाले किसान या वैध सीसीआरसी कार्ड धारक बटाईदार किसान।',
+          'वर्तमान सीजन में खेत में वास्तविक फसल मौजूद होनी चाहिए।'
+        ]
+      }
+    },
+    documents: [
+      {
+        id: 'doc-aadhaar',
+        name: {
+          en: 'Farmer Aadhaar Card',
+          te: 'రైతు ఆధార్ కార్డు',
+          hi: 'किसान का आधार कार्ड'
+        },
+        purpose: {
+          en: 'Farmer biometric identification and Direct Benefit Transfer (DBT) bank link.',
+          te: 'రైతు బయోమెట్రిక్ ఈ-కేవైసీ మరియు బ్యాంక్ ఖాతా అనుసంధానం.',
+          hi: 'बायोमेट्रिक ई-केवाईसी और बैंक खाता लिंकिंग।'
+        },
+        category: 'required',
+        issuingAuthority: 'UIDAI',
+        officialPortal: 'myaadhaar.uidai.gov.in',
+        officialPortalUrl: 'https://myaadhaar.uidai.gov.in/',
+        estimatedEffort: 'Instant via DigiLocker',
+        whyRequired: {
+          en: 'Mandatory for digital biometric e-KYC signature directly in the crop field.',
+          te: 'పొలంలో ప్రత్యక్ష బయోమెట్రిక్ నిర్ధారణ కొరకు తప్పనిసరి.',
+          hi: 'खेत में मौके पर ई-केवाईसी के लिए आवश्यक।'
+        },
+        dependencies: [],
+        obtainedFrom: 'UIDAI',
+        status: 'need'
+      },
+      {
+        id: 'doc-pattadar-passbook',
+        name: {
+          en: 'Pattadar Passbook / Meebhoomi 1-B Account (For Landowners)',
+          te: 'పట్టాదార్ పాస్‌పుస్తకం / మీభూమి 1-బి ఖాతా నంబర్ (భూయజమానులకు)',
+          hi: 'पट्टादार पासबुक / 1-बी खाता संख्या'
+        },
+        purpose: {
+          en: 'Verification of survey number, subdivision, and land extent recorded in Webland.',
+          te: 'వెబ్‌ల్యాండ్ రికార్డులలోని సర్వే నంబర్ మరియు విస్తీర్ణం నిర్ధారణ.',
+          hi: 'भूमि सर्वेक्षण संख्या और क्षेत्रफल का सत्यापन।'
+        },
+        category: 'conditional',
+        issuingAuthority: 'Revenue Department (CCLA AP)',
+        officialPortal: 'meebhoomi.ap.gov.in',
+        officialPortalUrl: 'https://meebhoomi.ap.gov.in/',
+        estimatedEffort: 'Instant lookup on meebhoomi.ap.gov.in',
+        whyRequired: {
+          en: 'Links satellite mapping to verified cadastral boundary.',
+          te: 'శాటిలైట్ మ్యాపింగ్ మరియు రెవెన్యూ సరిహద్దుల అనుసంధానానికి.',
+          hi: 'भूमि रिकॉर्ड से फसल जोड़ने के लिए।'
+        },
+        dependencies: [],
+        obtainedFrom: 'Meebhoomi Portal / Tahsildar Office',
+        status: 'need'
+      },
+      {
+        id: 'doc-ccrc-card',
+        name: {
+          en: 'Crop Cultivator Rights Card (CCRC - For Tenant Farmers)',
+          te: 'కౌలు రైతు హక్కుల కార్డు (CCRC - కౌలుదారులకు మాత్రమే)',
+          hi: 'फसल काश्तकार अधिकार कार्ड (सीसीआरसी - बटाईदारों हेतु)'
+        },
+        purpose: {
+          en: 'Statutory 11-month agreement guaranteeing tenant entitlement to sell crop at MSP.',
+          te: 'కౌలు రైతు పంట అమ్ముకోవడానికి మరియు పరిహారం పొందడానికి చట్టబద్ధమైన కార్డు.',
+          hi: 'बटाईदार किसानों को फसल बेचने और बीमा का अधिकार देता है।'
+        },
+        category: 'conditional',
+        issuingAuthority: 'Revenue Department (Tahsildar & VRO)',
+        officialPortal: 'ccla.ap.gov.in',
+        officialPortalUrl: 'https://ccla.ap.gov.in/',
+        estimatedEffort: 'Issued seasonally at Rythu Seva Kendram (RSK)',
+        whyRequired: {
+          en: 'Protects tenant farmers from landlord disputes in crop recording.',
+          te: 'కౌలు రైతులకు ప్రభుత్వం అందించే అన్ని రాయితీలు నేరుగా అందడానికి.',
+          hi: 'बटाईदार किसानों के अधिकारों की रक्षा हेतु।'
+        },
+        dependencies: [],
+        obtainedFrom: 'Rythu Seva Kendram (RSK) / Sachivalayam',
+        status: 'need'
+      }
+    ],
+    steps: [
+      {
+        stepNumber: 1,
+        stage: 'department_processing',
+        title: {
+          en: 'Joint Field Physical Inspection by VAA & VRO',
+          te: 'గ్రామ వ్యవసాయ సహాయకుడు (VAA) మరియు VRO సంయుక్త పొలం పరిశీలన',
+          hi: 'ग्राम कृषि सहायक और वीआरओ द्वारा संयुक्त खेत निरीक्षण'
+        },
+        explanation: {
+          en: 'Village Agriculture Assistant (VAA) and Village Revenue Officer (VRO) visit each farm plot. They observe actual crop variety, irrigation source, and extent using tablet GPS.',
+          te: 'వ్యవసాయ సహాయకుడు మరియు రెవెన్యూ అధికారి నేరుగా పొలానికి వచ్చి సాగు చేసిన పంట రకం, నీటి వనరు మరియు విస్తీర్ణాన్ని ట్యాబ్ లో నమోదు చేస్తారు.',
+          hi: 'अधिकारी मौके पर जाकर फसल की किस्म और रकबा डिजिटल रूप से दर्ज करते हैं।'
+        },
+        department: 'Agriculture & Revenue Department',
+        action: {
+          en: 'Meet VAA/VRO during village field inspection schedules',
+          te: 'గ్రామంలో జరిగే పంట సర్వే సమయంలో అధికారులకు సహకరించండి',
+          hi: 'खेत निरीक्षण के दौरान अपनी फसल दिखाएं'
+        },
+        onlineAvailable: false,
+        offlineAvailable: true,
+        offlineVenue: 'Farmer Agricultural Field Plot / Survey Boundary',
+        documentsRequired: ['doc-pattadar-passbook', 'doc-ccrc-card'],
+        dependencies: [],
+        expectedDays: 'Conducted during crop season window',
+        fee: 'Nil (Free Service)',
+        verificationStatus: 'verified'
+      },
+      {
+        stepNumber: 2,
+        stage: 'verification',
+        title: {
+          en: 'Tablet Geotagging & Crop Photo Capture',
+          te: 'ట్యాబ్ ద్వారా పంట ఫోటో క్యాప్చర్ & జియో-ఫెన్సింగ్',
+          hi: 'टैबलेट द्वारा जियोटैगिंग और फसल की फोटो खींचना'
+        },
+        explanation: {
+          en: 'VAA captures a live geotagged photograph of the standing crop with latitude/longitude coordinates directly inside the farm boundaries using the official e-Panta mobile app.',
+          te: 'ఈ-పంట యాప్ ద్వారా పొలంలో నిలబడి పంట ఫోటో మరియు జీపీఎస్ అక్షాంశ రేఖాంశాలను నమోదు చేస్తారు.',
+          hi: 'खेत में खड़ी फसल की जीपीएस युक्त लाइव फोटो ऐप में अपलोड की जाती है।'
+        },
+        department: 'Department of Agriculture',
+        action: {
+          en: 'Verify captured photo and survey boundaries on VAA tablet screen',
+          te: 'ట్యాబ్ స్క్రీన్ పై మీ సర్వే నంబర్ మరియు పంట ఫోటో సరిచూసుకోండి',
+          hi: 'टैबलेट पर फसल की फोटो और सर्वे नंबर सत्यापित करें'
+        },
+        onlineAvailable: false,
+        offlineAvailable: true,
+        offlineVenue: 'Farmer Crop Field',
+        documentsRequired: [],
+        dependencies: [1],
+        expectedDays: 'Immediate during inspection',
+        fee: 'Nil',
+        verificationStatus: 'verified'
+      },
+      {
+        stepNumber: 3,
+        stage: 'form_fill',
+        title: {
+          en: 'Farmer Biometric e-KYC Authentication',
+          te: 'రైతు బయోమెట్రిక్ లేదా ఐరిస్ ఈ-కేవైసీ నిర్ధారణ',
+          hi: 'किसान का बायोमेट्रिक या आईरिस ई-केवाईसी'
+        },
+        explanation: {
+          en: 'Farmer provides fingerprint or Iris biometric authentication on the field tablet, validating that the recorded crop belongs to them.',
+          te: 'నమోదు చేసిన పంట వివరాలు సరైనవేనని నిర్ధారిస్తూ రైతు తన వేలిముద్ర లేదా ఐరిస్ బయోమెట్రిక్ వేయాలి.',
+          hi: 'किसान बायोमेट्रिक फिंगरप्रिंट देकर फसल विवरण की पुष्टि करता है।'
+        },
+        department: 'Agriculture Dept & GSWS',
+        action: {
+          en: 'Authenticate with fingerprint on biometric scanner',
+          te: 'బయోమెట్రిక్ స్కానర్ పై వేలిముద్ర వేసి నమోదు పూర్తి చేయండి',
+          hi: 'बायोमेट्रिक प्रमाणीकरण पूरा करें'
+        },
+        onlineAvailable: false,
+        offlineAvailable: true,
+        offlineVenue: 'Farmer Field or Rythu Seva Kendram (RSK)',
+        documentsRequired: ['doc-aadhaar'],
+        dependencies: [2],
+        expectedDays: '1 Day',
+        fee: 'Nil',
+        verificationStatus: 'verified'
+      },
+      {
+        stepNumber: 4,
+        stage: 'tracking',
+        title: {
+          en: 'Social Audit at RSK & e-Panta Digital Acknowledgement',
+          te: 'రైతు సేవా కేంద్రంలో (RSK) సోషల్ ఆడిట్ & రశీదు సేకరణ',
+          hi: 'आरएसके पर सोशल ऑडिट और पावती रसीद'
+        },
+        explanation: {
+          en: 'Draft list of all registered crops is displayed at the Rythu Seva Kendram for public social audit. Farmer receives SMS confirmation and digital acknowledgment card for zero-cost crop insurance and procurement.',
+          te: 'నమోదైన పంటల జాబితాను రైతు సేవా కేంద్రం నోటీస్ బోర్డులో ఉంచుతారు. అభ్యంతరాలు లేకపోతే తుది రశీదు జారీ అవుతుంది.',
+          hi: 'आरएसके पर सूची प्रदर्शित की जाती है और किसान को आधिकारिक पावती रसीद मिलती है।'
+        },
+        department: 'Rythu Seva Kendram (RSK) & Civil Supplies',
+        action: {
+          en: 'Check your name on RSK social audit list or online portal',
+          te: 'పోర్టల్ లో లేదా ఆర్ఎస్కే వద్ద మీ ఈ-పంట నమోదు స్థితిని తనిఖీ చేయండి',
+          hi: 'पोर्टल पर अपना नाम और विवरण सत्यापित करें'
+        },
+        actionUrl: 'https://karshak.ap.gov.in/ecrop/',
+        actionLabel: {
+          en: 'Search e-Crop Status',
+          te: 'ఈ-పంట స్థితిని పరిశీలించండి',
+          hi: 'ई-क्रॉप स्थिति देखें'
+        },
+        onlineAvailable: true,
+        offlineAvailable: true,
+        offlineVenue: 'Village Rythu Seva Kendram (RSK)',
+        documentsRequired: [],
+        dependencies: [3],
+        expectedDays: '3 Days after audit',
+        fee: '₹0 (Completely Free)',
+        verificationStatus: 'verified'
+      }
+    ],
+    dependencies: [],
+    officialPortal: 'karshak.ap.gov.in',
+    officialPortalUrl: 'https://karshak.ap.gov.in/ecrop/',
+    trackingUrl: 'https://karshak.ap.gov.in/ecrop/',
+    onlineAvailable: true,
+    offlineAvailable: true,
+    offlineDetails: {
+      en: 'Conducted directly in the fields and through Rythu Seva Kendrams (RSKs) across 13,000+ villages in Andhra Pradesh.',
+      te: 'ఆంధ్రప్రదేశ్ లోని 13,000కు పైగా గ్రామాల రైతు సేవా కేంద్రాలు (RSK) ద్వారా నిర్వహణ.',
+      hi: 'सभी 13,000+ गांवों में किसान सेवा केंद्रों (आरएसके) के माध्यम से संचालन।'
+    },
+    fees: [
+      {
+        item: 'e-Crop Booking & Insurance Enrollment Fee',
+        amount: '₹0.00 (100% Free Govt Service)',
+        officialRule: 'Govt of AP Free Crop Insurance Mandate'
+      }
+    ],
+    processingTime: 'Seasonal window with immediate field e-KYC',
+    outputDocument: {
+      en: 'Government of AP Official e-Panta Crop Booking Digital Pass & Insurance Entitlement Docket',
+      te: 'ఆంధ్రప్రదేశ్ ప్రభుత్వం జారీ చేసిన అధికారిక ఈ-పంట నమోదు రశీదు & ఉచిత బీమా పత్రం',
+      hi: 'आधिकारिक ई-पंटा फसल पंजीकरण रसीद और बीमा दस्तावेज'
+    },
+    lastVerified: 'March 2026',
+    verificationStatus: 'verified',
+    sources: [
+      {
+        title: 'Andhra Pradesh e-Crop / Karshak Portal',
+        domain: 'karshak.ap.gov.in',
+        url: 'https://karshak.ap.gov.in/ecrop/',
+        lastVerified: 'March 2026',
+        tier: 1,
+        verificationStatus: 'verified'
+      },
+      {
+        title: 'Department of Agriculture, AP',
+        domain: 'apagrisnet.gov.in',
+        url: 'https://apagrisnet.gov.in/',
+        lastVerified: 'March 2026',
+        tier: 1,
+        verificationStatus: 'verified'
+      }
+    ],
+    exceptionCases: [
+      {
+        id: 'crop-mismatch-correction',
+        title: {
+          en: 'Discrepancy in Survey Number or Sown Crop Name',
+          te: 'సర్వే నంబర్ లేదా సాగు చేసిన పంట పేరులో తప్పులు దొర్లినప్పుడు',
+          hi: 'सर्वे नंबर या फसल के नाम में विसंगति'
+        },
+        resolution: {
+          en: 'Raise a correction grievance with the Village Agriculture Assistant (VAA) within 7 days of the RSK social audit display before final digital lockdown.',
+          te: 'ఆర్ఎస్కే వద్ద ప్రదర్శించిన 7 రోజులలోపు వ్యవసాయ సహాయకునికి ఫిర్యాదు చేసి రికార్డులను సరిదిద్దవచ్చు.',
+          hi: 'आरएसके पर 7 दिनों के भीतर कृषि सहायक से मिलकर संशोधन कराएं।'
+        }
+      }
+    ]
   }
+
 ];

@@ -6,73 +6,101 @@ import {
   MicOff, 
   Paperclip, 
   ArrowRight, 
-  Sparkles, 
   ShieldCheck, 
-  Layers, 
+  Compass, 
   CheckCircle2, 
-  FileCheck,
-  Building
+  ChevronRight,
+  User,
+  Sparkles,
+  FileText,
+  ExternalLink,
+  Send,
+  Activity,
+  Loader2
 } from 'lucide-react';
+import { Hero3DBackground } from './Hero3DBackground';
 
 interface HeroProps {
   onSearchGoal: (query: string) => void;
   onOpenUploadModal: () => void;
+  onExploreServices?: () => void;
 }
 
-export const Hero: React.FC<HeroProps> = ({ onSearchGoal, onOpenUploadModal }) => {
+export const Hero: React.FC<HeroProps> = ({ 
+  onSearchGoal, 
+  onOpenUploadModal,
+  onExploreServices 
+}) => {
   const { lang, t } = useLanguage();
   const [query, setQuery] = useState('');
   const [isListening, setIsListening] = useState(false);
   const [placeholderIndex, setPlaceholderIndex] = useState(0);
 
-  // Rotating realistic placeholders
-  const placeholdersEn = [
-    'I want to apply for a new caste certificate',
-    'I need an income certificate for college scholarship',
-    'I want to check my Meebhoomi Adangal land records',
-    'I want to get a new domestic electricity connection',
-    'I need a learner licence (LLR) and driving licence',
-    'I want to apply for a new AP Rice Card',
-    'I want to register a birth certificate',
-    'I want to apply for NTR Bharosa pension'
+  // 3D Background Interactive State
+  const [isSearchFocused, setIsSearchFocused] = useState(false);
+  const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
+  // Rotating examples specified in prompt
+  const rotatingPlaceholdersEn = [
+    'I want to apply for a caste certificate',
+    'I want to apply for Jnanabhumi Post-Matric Scholarship & Fee Reimbursement',
+    'I want to check my land records',
+    'I want to apply for a new electricity connection',
+    'I want to get a birth certificate'
   ];
 
-  const placeholdersTe = [
+  const rotatingPlaceholdersTe = [
     'నాకు నూతన కుల ధ్రువీకరణ పత్రం (Caste Certificate) కావాలి',
-    'కాలేజీ స్కాలర్‌షిప్ కొరకు ఆదాయ ధ్రువీకరణ పత్రం కావాలి',
-    'మీభూమిలో నా పొలం అడంగల్ / 1-బి రికార్డు చూసుకోవాలి',
-    'నూతన గృహ విద్యుత్ మీటర్ కనెక్షన్ తీసుకోవాలనుకుంటున్నాను',
-    'లెర్నర్ లైసెన్స్ (LLR) మరియు డ్రైవింగ్ లైసెన్స్ కావాలి',
-    'కొత్త బియ్యం కార్డు (రేషన్ కార్డు) కొరకు దరఖాస్తు చేయాలి',
-    'జనన ధ్రువీకరణ పత్రం (పుట్టిన తేదీ సర్టిఫికెట్) కావాలి',
-    'ఎన్టీఆర్ భరోసా వృద్ధాప్య పింఛన్ కొరకు దరఖాస్తు చేయాలి'
+    'జ్ఞానభూమి పోస్ట్-మెట్రిక్ స్కాలర్‌షిప్ & విద్యా దీవెన కొరకు దరఖాస్తు చేయాలి',
+    'మీభూమిలో నా భూమి రికార్డులు (అడంగల్) చూసుకోవాలి',
+    'నూతన గృహ విద్యుత్ మీటర్ కనెక్షన్ తీసుకోవాలి',
+    'జనన ధ్రువీకరణ పత్రం (పుట్టిన తేదీ సర్టిఫికెట్) కావాలి'
   ];
 
-  const currentPlaceholders = lang === 'te' ? placeholdersTe : placeholdersEn;
+  const rotatingPlaceholdersHi = [
+    'मुझे जाति प्रमाण पत्र के लिए आवेदन करना है',
+    'मुझे ज्ञानभूमि पोस्ट-मैट्रिक छात्रवृत्ति और शुल्क प्रतिपूर्ति के लिए आवेदन करना है',
+    'मुझे अपने भूमि अभिलेख (अडंगल) जांचने हैं',
+    'मुझे नया बिजली कनेक्शन लेना है',
+    'मुझे जन्म प्रमाण पत्र प्राप्त करना है'
+  ];
+
+  const currentPlaceholders = 
+    lang === 'te' 
+      ? rotatingPlaceholdersTe 
+      : lang === 'hi' 
+      ? rotatingPlaceholdersHi 
+      : rotatingPlaceholdersEn;
 
   useEffect(() => {
     const interval = setInterval(() => {
       setPlaceholderIndex((prev) => (prev + 1) % currentPlaceholders.length);
-    }, 4000);
+    }, 3800);
     return () => clearInterval(interval);
   }, [currentPlaceholders.length]);
 
+  // Execute goal journey search with 550ms 3D transition
+  const executeGoalWithTransition = (targetQuery: string) => {
+    const finalQuery = targetQuery.trim() || currentPlaceholders[placeholderIndex];
+    setIsTransitioning(true);
+    setTimeout(() => {
+      onSearchGoal(finalQuery);
+      setIsTransitioning(false);
+    }, 550);
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!query.trim()) {
-      // Use current rotating placeholder as default if empty
-      onSearchGoal(currentPlaceholders[placeholderIndex]);
-    } else {
-      onSearchGoal(query.trim());
-    }
+    executeGoalWithTransition(query);
   };
 
   const handleQuickGoal = (goalText: string) => {
     setQuery(goalText);
-    onSearchGoal(goalText);
+    executeGoalWithTransition(goalText);
   };
 
-  // Voice recognition simulation / native SpeechRecognition
+  // Native SpeechRecognition support
   const handleVoiceToggle = () => {
     const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
     if (SpeechRecognition) {
@@ -81,7 +109,7 @@ export const Hero: React.FC<HeroProps> = ({ onSearchGoal, onOpenUploadModal }) =
       } else {
         try {
           const recognition = new SpeechRecognition();
-          recognition.lang = lang === 'te' ? 'te-IN' : 'en-IN';
+          recognition.lang = lang === 'te' ? 'te-IN' : lang === 'hi' ? 'hi-IN' : 'en-IN';
           recognition.interimResults = false;
           recognition.maxAlternatives = 1;
 
@@ -90,7 +118,7 @@ export const Hero: React.FC<HeroProps> = ({ onSearchGoal, onOpenUploadModal }) =
             const transcript = event.results[0][0].transcript;
             setQuery(transcript);
             setIsListening(false);
-            onSearchGoal(transcript);
+            executeGoalWithTransition(transcript);
           };
           recognition.onerror = () => setIsListening(false);
           recognition.onend = () => setIsListening(false);
@@ -100,8 +128,7 @@ export const Hero: React.FC<HeroProps> = ({ onSearchGoal, onOpenUploadModal }) =
         }
       }
     } else {
-      // Fallback: cycle through prompt
-      alert(t.voiceNotSupported);
+      alert(t.voiceNotSupported || 'Voice search is not supported in this browser.');
     }
   };
 
@@ -109,187 +136,284 @@ export const Hero: React.FC<HeroProps> = ({ onSearchGoal, onOpenUploadModal }) =
     {
       id: 'caste',
       en: 'Caste Certificate',
-      te: 'కుల ధ్రువీకరణ పత్రం',
-      query: lang === 'te' ? 'కుల ధ్రువీకరణ పత్రం కావాలి' : 'I want to apply for a caste certificate'
+      te: 'కుల ధ్రువీకరణ',
+      hi: 'जाति प्रमाण पत्र',
+      query: 'I want to apply for a caste certificate'
     },
     {
-      id: 'income',
-      en: 'Income for Scholarship',
-      te: 'స్కాలర్‌షిప్ ఆదాయ పత్రం',
-      query: lang === 'te' ? 'స్కాలర్‌షిప్ కొరకు ఆదాయ పత్రం' : 'I need an income certificate for scholarship'
+      id: 'scholarship',
+      en: 'Jnanabhumi Scholarship',
+      te: 'జ్ఞానభూమి స్కాలర్‌షిప్',
+      hi: 'ज्ञानभूमि छात्रवृत्ति',
+      query: 'I want to apply for Jnanabhumi Post-Matric Scholarship & Fee Reimbursement'
     },
     {
-      id: 'jnanabhumi',
-      en: 'Jnanabhumi Post-Matric',
-      te: 'జ్ఞానభూమి ఫీజు రీయింబర్స్‌మెంట్',
-      query: lang === 'te' ? 'జ్ఞానభూమి పోస్ట్-మెట్రిక్ స్కాలర్‌షిప్' : 'Apply for Jnanabhumi scholarship'
-    },
-    {
-      id: 'meebhoomi',
-      en: 'Meebhoomi 1-B Adangal',
-      te: 'మీభూమి అడంగల్ రికార్డు',
-      query: lang === 'te' ? 'మీభూమి అడంగల్ భూమి రికార్డు' : 'Check Meebhoomi Adangal land records'
-    },
-    {
-      id: 'rice-card',
-      en: 'New Rice Card (ePDS)',
-      te: 'కొత్త బియ్యం కార్డు',
-      query: lang === 'te' ? 'కొత్త బియ్యం కార్డు దరఖాస్తు' : 'Apply for a new Rice Card'
+      id: 'land',
+      en: 'Land Records',
+      te: 'భూ రికార్డులు',
+      hi: 'भूमि अभिलेख',
+      query: 'I want to check my land records'
     },
     {
       id: 'electricity',
-      en: 'New Electricity Connection',
-      te: 'నూతన విద్యుత్ కనెక్షన్',
-      query: lang === 'te' ? 'కొత్త విద్యుత్ కనెక్షన్ కావాలి' : 'New domestic electricity connection'
+      en: 'Electricity Connection',
+      te: 'విద్యుత్ కనెక్షన్',
+      hi: 'बिजली कनेक्शन',
+      query: 'I want to apply for a new electricity connection'
     },
     {
-      id: 'dl',
-      en: 'Driving Licence (LLR)',
-      te: 'డ్రైవింగ్ లైసెన్స్ (LLR)',
-      query: lang === 'te' ? 'డ్రైవింగ్ లైసెన్స్ కొరకు దరఖాస్తు' : 'Apply for driving licence LLR'
+      id: 'birth',
+      en: 'Birth Certificate',
+      te: 'జనన ధ్రువీకరణ',
+      hi: 'जन्म प्रमाण पत्र',
+      query: 'I want to get a birth certificate'
+    },
+    {
+      id: 'ration',
+      en: 'Ration / Rice Card',
+      te: 'బియ్యం కార్డు',
+      hi: 'राशन कार्ड',
+      query: 'I want to apply for a new AP Rice Card'
     }
   ];
 
+  // Visual flow sequence representing citizen journey
+  const flowSequence = [
+    { label: 'Citizen', icon: User },
+    { label: 'GovFlow.AI', icon: Sparkles },
+    { label: 'Documents', icon: FileText },
+    { label: 'Official Portal', icon: ExternalLink },
+    { label: 'Application', icon: Send },
+    { label: 'Tracking', icon: Activity },
+  ];
+
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-[#07192C] via-[#0A2540] to-[#0D3156] text-white pt-10 pb-16 sm:pt-16 sm:pb-24 px-4 sm:px-6 lg:px-8 border-b border-slate-800">
-      {/* Subtle Civic Grid & Architecture Watermark Overlay */}
-      <div 
-        className="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:24px_24px]"
+    <section className="relative overflow-hidden bg-gradient-to-b from-white via-[#F8FAFC] to-[#F1F5F9]/50 pt-8 pb-12 sm:pt-14 sm:pb-20 border-b border-slate-200/80">
+      {/* Premium 3D Animated Hero Background (Three.js WebGL canvas) */}
+      <Hero3DBackground 
+        isFocused={isSearchFocused}
+        query={query}
+        hoveredCategory={hoveredCategory}
+        isTransitioning={isTransitioning}
       />
 
-      <div className="relative max-w-5xl mx-auto text-center">
-        {/* Top Civic Trust Badge */}
-        <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-xs sm:text-sm font-medium text-amber-300 mb-6 shadow-inner">
-          <ShieldCheck className="w-4 h-4 text-amber-400" />
-          <span>Verified Government of Andhra Pradesh Framework</span>
-          <span className="hidden sm:inline text-slate-300">•</span>
-          <span className="hidden sm:inline text-slate-300">Revenue • MeeSeva • GSWS • CCLA • IGRS</span>
+      {/* Subtle civic watermark / light pattern */}
+      <div 
+        className="absolute inset-0 opacity-[0.025] pointer-events-none bg-[radial-gradient(#0A2540_1px,transparent_1px)] [background-size:24px_24px] z-0"
+      />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+        
+        {/* Universal Pathway: Visual Flow Strip */}
+        <div className="hidden lg:flex items-center justify-center space-x-2 py-1.5 px-4 rounded-full bg-white/85 backdrop-blur-md border border-slate-200/90 shadow-2xs max-w-2xl mx-auto mb-8">
+          <span className="text-[10px] font-bold text-amber-600 uppercase tracking-wider mr-1">
+            Universal Pathway:
+          </span>
+          {flowSequence.map((step, idx) => {
+            const Icon = step.icon;
+            return (
+              <React.Fragment key={idx}>
+                <div className="flex items-center space-x-1 text-[11px] font-bold text-slate-700">
+                  <Icon className="w-3 h-3 text-blue-600" />
+                  <span>{step.label}</span>
+                </div>
+                {idx < flowSequence.length - 1 && (
+                  <ChevronRight className="w-3 h-3 text-slate-300" />
+                )}
+              </React.Fragment>
+            );
+          })}
         </div>
 
-        {/* Heading */}
-        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.15]">
-          {t.heroHeading}
-        </h1>
-
-        {/* Subheading */}
-        <p className="mt-4 sm:mt-5 text-base sm:text-xl text-slate-300 font-normal max-w-3xl mx-auto leading-relaxed">
-          {t.heroSubheading}
-        </p>
-
-        {/* Main Orchestration Search Form */}
-        <div className="mt-8 sm:mt-10 max-w-3xl mx-auto">
-          <form onSubmit={handleSubmit} className="relative">
-            <div className="relative flex flex-col sm:flex-row items-stretch rounded-2xl bg-white p-2 shadow-2xl border-2 border-slate-200 focus-within:border-amber-500 transition-all duration-300 ring-4 ring-black/10">
-              {/* Input Area */}
-              <div className="relative flex-1 flex items-center px-4 py-2 sm:py-3">
-                <Search className="w-5 h-5 text-slate-400 mr-3 shrink-0" />
-                <input
-                  type="text"
-                  value={query}
-                  onChange={(e) => setQuery(e.target.value)}
-                  placeholder={currentPlaceholders[placeholderIndex]}
-                  className="w-full text-slate-900 placeholder:text-slate-400 text-base sm:text-lg font-medium focus:outline-none bg-transparent"
-                />
-              </div>
-
-              {/* Utility Tools & Submit */}
-              <div className="flex items-center justify-between sm:justify-end space-x-2 px-2 pt-2 sm:pt-0 border-t sm:border-t-0 border-slate-100">
-                {/* Voice Input */}
-                <button
-                  type="button"
-                  onClick={handleVoiceToggle}
-                  className={`p-2.5 rounded-xl border text-xs font-medium flex items-center transition ${
-                    isListening
-                      ? 'bg-rose-500 text-white border-rose-600 animate-pulse'
-                      : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100'
-                  }`}
-                  title={t.voiceInputLabel}
-                >
-                  {isListening ? <MicOff className="w-4 h-4 text-white" /> : <Mic className="w-4 h-4 text-slate-600" />}
-                </button>
-
-                {/* Upload Document helper */}
-                <button
-                  type="button"
-                  onClick={onOpenUploadModal}
-                  className="p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 hover:bg-slate-100 transition"
-                  title={t.uploadDocLabel}
-                >
-                  <Paperclip className="w-4 h-4 text-slate-600" />
-                </button>
-
-                {/* Main Action Button */}
-                <button
-                  type="submit"
-                  className="px-6 py-3.5 rounded-xl bg-[#0A2540] hover:bg-[#07192C] text-white font-bold text-sm sm:text-base flex items-center space-x-2 transition shadow-md shadow-blue-950/30 active:scale-[0.98] group"
-                >
-                  <span>{t.buildJourneyBtn}</span>
-                </button>
-              </div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+          
+          {/* Left Column: Heading, Copy, Search Input, and CTAs */}
+          <div className="lg:col-span-7 space-y-6 text-left">
+            
+            {/* Trust Pill */}
+            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-blue-50/90 backdrop-blur-xs border border-blue-200/80 text-xs font-semibold text-[#0A2540] shadow-2xs">
+              <ShieldCheck className="w-4 h-4 text-blue-700 shrink-0" />
+              <span>Verified Government of Andhra Pradesh Framework</span>
+              <span className="hidden sm:inline text-slate-300">•</span>
+              <span className="hidden sm:inline text-slate-600">Revenue • MeeSeva • GSWS • CCLA</span>
             </div>
-          </form>
 
-          {/* Listening State Banner */}
-          {isListening && (
-            <div className="mt-3 px-4 py-2 rounded-lg bg-rose-900/40 border border-rose-500/40 text-rose-200 text-xs sm:text-sm font-medium flex items-center justify-center space-x-2">
-              <span className="w-2 h-2 rounded-full bg-rose-400 animate-ping" />
-              <span>{t.listeningVoice}</span>
+            {/* Main Heading */}
+            <h1 className="text-3xl sm:text-5xl lg:text-[54px] font-black text-slate-900 tracking-tight leading-[1.12]">
+              Government Services,
+              <br />
+              <span className="text-[#0A2540]">Made Simple.</span>
+            </h1>
+
+            {/* Supporting Text */}
+            <p className="text-sm sm:text-lg text-slate-600 font-normal leading-relaxed max-w-2xl">
+              Tell GovFlow.AI what you want to accomplish. We identify the documents, dependencies, official portals and next steps needed to complete your journey.
+            </p>
+
+            {/* Prominent Goal Search Form */}
+            <div className="pt-1">
+              <form onSubmit={handleSubmit} className="relative">
+                <div className={`relative flex flex-col sm:flex-row items-stretch rounded-2xl bg-white p-2 shadow-lg border-2 transition-all duration-200 ${
+                  isSearchFocused 
+                    ? 'border-blue-600 ring-4 ring-blue-100 shadow-xl' 
+                    : 'border-slate-200 hover:border-slate-300'
+                }`}>
+                  {/* Text Input */}
+                  <div className="relative flex-1 flex items-center px-3 py-2 sm:py-2.5">
+                    <Search className={`w-5 h-5 mr-2.5 shrink-0 transition-colors ${
+                      isSearchFocused ? 'text-blue-600' : 'text-slate-400'
+                    }`} />
+                    <input
+                      type="text"
+                      value={query}
+                      onChange={(e) => setQuery(e.target.value)}
+                      onFocus={() => setIsSearchFocused(true)}
+                      onBlur={() => setIsSearchFocused(false)}
+                      placeholder={currentPlaceholders[placeholderIndex]}
+                      className="w-full text-slate-900 placeholder:text-slate-400 text-sm sm:text-base font-medium focus:outline-none bg-transparent"
+                    />
+                  </div>
+
+                  {/* Actions inside search bar */}
+                  <div className="flex items-center justify-between sm:justify-end space-x-2 px-2 pt-2 sm:pt-0 border-t sm:border-t-0 border-slate-100">
+                    {/* Voice Input */}
+                    <button
+                      type="button"
+                      onClick={handleVoiceToggle}
+                      className={`p-2.5 rounded-xl border text-xs font-medium flex items-center transition ${
+                        isListening
+                          ? 'bg-rose-500 text-white border-rose-600 animate-pulse'
+                          : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100'
+                      }`}
+                      title={t.voiceInputLabel || 'Voice Search'}
+                    >
+                      {isListening ? <MicOff className="w-4 h-4 text-white" /> : <Mic className="w-4 h-4 text-slate-600" />}
+                    </button>
+
+                    {/* Document Upload Assistant */}
+                    <button
+                      type="button"
+                      onClick={onOpenUploadModal}
+                      className="p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 hover:bg-slate-100 transition"
+                      title={t.uploadDocLabel || 'Identify by Document'}
+                    >
+                      <Paperclip className="w-4 h-4 text-slate-600" />
+                    </button>
+
+                    {/* Submit Button */}
+                    <button
+                      type="submit"
+                      disabled={isTransitioning}
+                      className="px-5 py-3 rounded-xl bg-[#0A2540] hover:bg-[#07192C] text-white font-bold text-xs sm:text-sm flex items-center space-x-1.5 transition shadow-sm active:scale-[0.98] disabled:opacity-85"
+                    >
+                      {isTransitioning ? (
+                        <>
+                          <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                          <span>Mapping Route...</span>
+                        </>
+                      ) : (
+                        <>
+                          <span>Build My Journey</span>
+                          <ArrowRight className="w-3.5 h-3.5" />
+                        </>
+                      )}
+                    </button>
+                  </div>
+                </div>
+              </form>
+
+              {/* Listening State Banner */}
+              {isListening && (
+                <div className="mt-2.5 px-3 py-1.5 rounded-lg bg-rose-50 border border-rose-200 text-rose-800 text-xs font-semibold flex items-center space-x-2">
+                  <span className="w-2 h-2 rounded-full bg-rose-500 animate-ping" />
+                  <span>Listening... Speak your citizen goal clearly</span>
+                </div>
+              )}
             </div>
-          )}
 
-          {/* Suggested Goals Chips */}
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-2 text-xs">
-            <span className="text-slate-400 font-medium mr-1">{t.suggestedGoalsLabel}</span>
-            {suggestedChips.map((chip) => (
+            {/* Primary and Secondary CTA Buttons */}
+            <div className="flex flex-wrap items-center gap-3 pt-1">
               <button
-                key={chip.id}
                 type="button"
-                onClick={() => handleQuickGoal(chip.query)}
-                className="px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-slate-200 border border-white/10 transition active:scale-95 text-xs font-medium"
+                disabled={isTransitioning}
+                onClick={() => executeGoalWithTransition(query)}
+                className="px-6 py-3 rounded-xl bg-[#0A2540] hover:bg-[#07192C] text-white font-bold text-xs sm:text-sm flex items-center space-x-2 shadow-md hover:shadow-lg transition active:scale-[0.98] disabled:opacity-85"
               >
-                {lang === 'te' ? chip.te : chip.en}
+                {isTransitioning ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin text-amber-400" />
+                    <span>Connecting Official Services...</span>
+                  </>
+                ) : (
+                  <span>Build My Journey →</span>
+                )}
               </button>
-            ))}
-          </div>
-        </div>
 
-        {/* 3 Pillars Value Props */}
-        <div className="mt-12 sm:mt-16 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-4xl mx-auto text-left">
-          <div className="p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-xs flex items-start space-x-3.5">
-            <div className="p-2 rounded-lg bg-amber-500/20 text-amber-300">
-              <Layers className="w-5 h-5" />
+              {onExploreServices && (
+                <button
+                  type="button"
+                  onClick={onExploreServices}
+                  className="px-5 py-3 rounded-xl bg-white hover:bg-slate-50 text-[#0A2540] font-bold text-xs sm:text-sm border border-slate-300 shadow-2xs hover:border-slate-400 transition flex items-center space-x-2"
+                >
+                  <Compass className="w-4 h-4 text-slate-600" />
+                  <span>Explore Services</span>
+                </button>
+              )}
             </div>
-            <div>
-              <h4 className="text-sm font-bold text-white">Full Dependency Graph</h4>
-              <p className="text-xs text-slate-300 mt-0.5">
-                Know which certificates must be obtained first before you file your final application.
-              </p>
+
+            {/* Quick Suggested Goal Chips (With 3D Micro-Interactions) */}
+            <div className="pt-2 flex flex-wrap items-center gap-1.5 text-xs">
+              <span className="text-slate-400 font-medium mr-1 text-[11px]">Popular:</span>
+              {suggestedChips.map((chip) => (
+                <button
+                  key={chip.id}
+                  type="button"
+                  onClick={() => handleQuickGoal(chip.query)}
+                  onMouseEnter={() => setHoveredCategory(chip.id)}
+                  onMouseLeave={() => setHoveredCategory(null)}
+                  className={`px-3 py-1 rounded-lg backdrop-blur-xs border text-xs font-medium transition active:scale-95 shadow-2xs ${
+                    hoveredCategory === chip.id
+                      ? 'bg-blue-600 text-white border-blue-600 shadow-sm'
+                      : 'bg-white/90 hover:bg-blue-50 text-slate-700 hover:text-[#0A2540] border-slate-200/90'
+                  }`}
+                >
+                  {lang === 'te' ? chip.te : lang === 'hi' ? chip.hi : chip.en}
+                </button>
+              ))}
+            </div>
+
+          </div>
+
+          {/* Right Column: Very Realistic Citizen Photograph */}
+          <div className="lg:col-span-5">
+            <div className="relative">
+              {/* Soft decorative ambient glow */}
+              <div className="absolute -inset-2 bg-gradient-to-tr from-blue-500/10 via-amber-500/10 to-transparent rounded-3xl blur-md pointer-events-none" />
+
+              <div className="relative rounded-3xl overflow-hidden bg-white border border-slate-200/90 shadow-xl group">
+                <img
+                  src="/images/hero-citizen.jpg"
+                  alt="Authentic Indian citizen using a laptop at home to access government services through GovFlow.AI"
+                  className="w-full h-[360px] sm:h-[440px] object-cover object-top group-hover:scale-[1.02] transition-transform duration-500"
+                  loading="eager"
+                />
+
+                {/* Bottom floating badge: Trust & Confidence */}
+                <div className="absolute bottom-4 left-4 right-4 p-3.5 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200/80 shadow-lg space-y-1.5">
+                  <div className="flex items-center space-x-2 text-xs font-bold text-slate-900">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>An ordinary citizen is using GovFlow.AI</span>
+                  </div>
+                  <div className="flex items-center justify-between text-[11px] text-slate-500 pt-1 border-t border-slate-100">
+                    <span>✓ 100% Official Portals</span>
+                    <span>✓ No Intermediaries</span>
+                    <span>✓ Clear Requirements</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div className="p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-xs flex items-start space-x-3.5">
-            <div className="p-2 rounded-lg bg-emerald-500/20 text-emerald-300">
-              <CheckCircle2 className="w-5 h-5" />
-            </div>
-            <div>
-              <h4 className="text-sm font-bold text-white">Verified Official Portals</h4>
-              <p className="text-xs text-slate-300 mt-0.5">
-                Every link connects directly to official MeeSeva, GSWS, or Department portals — zero fake URLs.
-              </p>
-            </div>
-          </div>
-
-          <div className="p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-xs flex items-start space-x-3.5">
-            <div className="p-2 rounded-lg bg-blue-500/20 text-blue-300">
-              <FileCheck className="w-5 h-5" />
-            </div>
-            <div>
-              <h4 className="text-sm font-bold text-white">Document Intelligence</h4>
-              <p className="text-xs text-slate-300 mt-0.5">
-                Segregated into Mandatory, Conditional, and Supporting with exact issuing authorities.
-              </p>
-            </div>
-          </div>
         </div>
       </div>
     </section>

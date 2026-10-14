@@ -190,7 +190,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     },
     iconName: 'Stethoscope',
     count: 8,
-    featuredServices: ['ap-sadarem-cert']
+    featuredServices: ['ap-aarogyasri-card', 'ap-sadarem-cert']
   },
   {
     id: 'employment',

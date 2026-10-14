@@ -13,8 +13,34 @@ const INTENT_KEYWORDS: Record<string, string[]> = {
     'आय', 'आय प्रमाण पत्र', 'fee reimbursement income', 'income certificate'
   ],
   'ap-jnanabhumi-scholarship': [
-    'scholarship', 'jnanabhumi', 'fee reimbursement', 'vidya deevena', 'vasathi deevena',
-    'college fee', 'విద్యా దీవెన', 'వసతి దీవెన', 'జ్ఞానభూమి', 'స్కాలర్‌షిప్', 'छात्रवृत्ति'
+    'jnanabhumi post-matric scholarship & fee reimbursement',
+    'jnanabhumi post-matric scholarship',
+    'jnanabhumi scholarship',
+    'post-matric scholarship & fee reimbursement',
+    'post-matric scholarship',
+    'post matric scholarship',
+    'post-matric',
+    'post matric',
+    'postmatric',
+    'scholarship',
+    'fee reimbursement',
+    'reimbursement',
+    'vidya deevena',
+    'vasathi deevena',
+    'jnanabhumi',
+    'college fee',
+    'education scholarship',
+    'student scholarship',
+    'విద్యా దీవెన',
+    'వసతి దీవెన',
+    'జ్ఞానభూమి',
+    'స్కాలర్‌షిప్',
+    'పోస్ట్-మెట్రిక్',
+    'ఫీజు రీయింబర్స్‌మెంట్',
+    'छात्रवृत्ति',
+    'ज्ञानभूमि',
+    'पोस्ट-मैट्रिक',
+    'शुल्क प्रतिपूर्ति'
   ],
   'ap-meebhoomi-adangal': [
     'adangal', 'pahani', 'meebhoomi', '1-b', '1b', 'land record', 'survey number',
@@ -43,6 +69,26 @@ const INTENT_KEYWORDS: Record<string, string[]> = {
   'ap-social-pension': [
     'pension', 'old age', 'widow', 'ntr bharosa', 'ysr pension', 'disabled pension',
     'పింఛన్', 'పెన్షన్', 'వృద్ధాప్య', 'వితంతు', 'ఎన్టీఆర్ భరోసా', 'पेंशन'
+  ],
+  'ap-residence-cert': [
+    'residence', 'residence certificate', 'nativity', 'domicile', 'local candidate', 'study certificate',
+    'నివాస', 'స్థానికత', 'నివాస ధ్రువీకరణ', 'నేటివిటీ', 'స్థానిక', 'డోమిసైల్', 'निवास', 'मूल निवासी'
+  ],
+  'ap-aarogyasri-card': [
+    'aarogyasri', 'arogyasri', 'health card', 'aarogya card', 'hospital', 'cashless treatment', 'surgery', 'aarogya mithra',
+    'ఆరోగ్యశ్రీ', 'హెల్త్ కార్డు', 'వైద్యం', 'ఉచిత వైద్యం', 'ఆసుపత్రి', 'చికిత్స', 'ఆరోగ్య మిత్ర', 'आरोग्यश्री', 'स्वास्थ्य कार्ड'
+  ],
+  'ap-sadarem-cert': [
+    'sadarem', 'disability', 'handicapped', 'disabled', 'medical board', 'pwd', 'physically challenged',
+    'సదరం', 'దివ్యాంగ', 'వైకల్యం', 'వికలాంగుల', 'మెడికల్ బోర్డు', 'దివ్యాంగుల పింఛను', 'सदरेम', 'दिव्यांग'
+  ],
+  'ap-house-site-patta': [
+    'house site', 'patta', 'pedalandariki illu', 'housing', 'house plot', 'd-form patta', 'homeless', 'jagananna colonies',
+    'ఇళ్ల స్థలం', 'ఇళ్ల పట్టా', 'పేదలందరికీ ఇళ్లు', 'గృహనిర్మాణం', 'పట్టా', 'ఇళ్ల స్థలాలు', 'पट्टा', 'आवास'
+  ],
+  'ap-ecrop-booking': [
+    'ecrop', 'e-crop', 'crop booking', 'farmer', 'rythu bharosa', 'e-panta', 'panta', 'ccrc', 'tenant farmer', 'crop insurance',
+    'ఈ-క్రాప్', 'ఈ-పంట', 'రైతు భరోసా', 'పంట నమోదు', 'కౌలు రైతు', 'పంట బీమా', 'రైతు', 'ई-क्रॉप', 'किसान'
   ]
 };
 
